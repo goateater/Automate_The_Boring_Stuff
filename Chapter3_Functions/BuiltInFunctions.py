@@ -3,6 +3,7 @@ import string, random, sys, os
 mytitle = 'Importing Modules'
 print (mytitle.title())
 print('\n')
+print('https://automatetheboringstuff.com/appendixa/')
 
 importingSplained = """
 All Python programs can call a basic set of functions called built-in functions,

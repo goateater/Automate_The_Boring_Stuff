@@ -1,6 +1,6 @@
 expressions_sample = 2 + 2
-print '2 + 2 = ', + expressions_sample
-print type(expressions_sample)
+print ('2 + 2 = ', + expressions_sample)
+print (type(expressions_sample))
 print("\n")
 print("In Python, '2 + 2' is called an expression, Its the most basic kind of programming instruction in the Python language.")
 print("The values of expressions are the operands or the 2's, and the operands, which a few examples would be... + - * and so on, values and operands always evaluate to a result")
@@ -30,11 +30,11 @@ print("My first program")
 print("----------------")
 # This program says hello and asks for my name.
 
-myName = raw_input('What is your name? ')
+myName = input('What is your name? ')
 myNameLength = (len(myName))
 print('It is good to meet you, ' + myName.capitalize())
 print('The length of your name is ' +str(myNameLength) + ' letters long')
-myAge = raw_input('What is your age? ')
+myAge = input('What is your age? ')
 print('You will be ' +str((int(myAge)) + 1) + ' in a year ' + myName.capitalize() + '.')
 print('You will be ' +str(int(myAge) +1) + 'in a year.')
 print('You will be ' + str(int('4') + 1) + ' in a year.')
