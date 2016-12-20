@@ -3,12 +3,14 @@ chap3summary = """
 Summary
 
 Functions are the primary way to compartmentalize your code into logical groups.
-Since the variables in functions exist in their own local scopes, the code in one function cannot directly affect the values of variables in other functions.
+Since the variables in functions exist in their own local scopes, the code in one function cannot directly affect 
+the values of variables in other functions.
 This limits what code could be changing the values of your variables, which can be helpful when it comes to debugging your code.
 
 Functions are a great tool to help you organize your code.
 You can think of them as black boxes:
-They have inputs in the form of parameters and outputs in the form of return values, and the code in them doesn’t affect variables in other functions.
+They have inputs in the form of parameters and outputs in the form of return values, and the code in them doesn’t
+affect variables in other functions.
 
 In previous chapters, a single error could cause your programs to crash.
 In this chapter, you learned about try and except statements, which can run code when an error has been detected.
@@ -40,9 +42,11 @@ Write a function named collatz() that has one parameter named number.
 If number is even, then collatz() should print number // 2 and return this value.
 If number is odd, then collatz() should print and return 3 * number + 1.
 
-Then write a program that lets the user type in an integer and that keeps calling collatz() on that number until the function returns the value 1.
+Then write a program that lets the user type in an integer and that keeps calling collatz() on that number until the
+function returns the value 1.
 (Amazingly enough, this sequence actually works for any integer—sooner or later, using this sequence, you’ll arrive at 1!
-Even mathematicians aren’t sure why. Your program is exploring what’s called the Collatz sequence, sometimes called “the simplest impossible math problem.”)
+Even mathematicians aren’t sure why. Your program is exploring what’s called the Collatz sequence, sometimes called 
+“the simplest impossible math problem.”)
 
 Remember to convert the return value from input() to an integer with the int() function; otherwise, it will be a string value.
 
