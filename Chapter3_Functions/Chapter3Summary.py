@@ -1,51 +1,72 @@
-summary = """
+chap3summary = """
+
 Summary
--------
-By using expressions that evaluate to True or False (also called conditions), you can write programs that make decisions
-on what code to execute and what code to skip. You can also execute code over and over again in a loop while a certain
-condition evaluates to True. The break and continue statements are useful if you need to exit a loop or jump back to the start.
 
-These flow control statements will let you write much more intelligent programs. There’s another type of flow control
-that you can achieve by writing your own functions, which is the topic of the next chapter.
+Functions are the primary way to compartmentalize your code into logical groups.
+Since the variables in functions exist in their own local scopes, the code in one function cannot directly affect the values of variables in other functions.
+This limits what code could be changing the values of your variables, which can be helpful when it comes to debugging your code.
 
+Functions are a great tool to help you organize your code.
+You can think of them as black boxes:
+They have inputs in the form of parameters and outputs in the form of return values, and the code in them doesn’t affect variables in other functions.
+
+In previous chapters, a single error could cause your programs to crash.
+In this chapter, you learned about try and except statements, which can run code when an error has been detected.
+This can make your programs more resilient to common error cases.
 
 Practice Questions
-------------------
-Question 1: What are the two values of the Boolean data type? How do you write them?
-Question 2: What are the three Boolean operators?
-Question 3: Write out the truth tables of each Boolean operator (that is, every possible combination of Boolean values for the operator and what they evaluate to).
-Question 4: What do the following expressions evaluate to?
+==================
+Q: 1. Why are functions advantageous to have in your programs?
+Q: 2. When does the code in a function execute: when the function is defined or when the function is called?
+Q: 3. What statement creates a function?
+Q: 4. What is the difference between a function and a function call?
+Q: 5. How many global scopes are there in a Python program? How many local scopes?
+Q: 6. What happens to variables in a local scope when the function call returns?
+Q: 7. What is a return value? Can a return value be part of an expression?
+Q: 8. If a function does not have a return statement, what is the return value of a call to that function?
+Q: 9. How can you force a variable in a function to refer to the global variable?
+Q: 10. What is the data type of None?
+Q: 11. What does the import areallyourpetsnamederic statement do?
+Q: 12. If you had a function named bacon() in a module named spam, how would you call it after importing spam?
+Q: 13. How can you prevent a program from crashing when it gets an error?
+Q: 14. What goes in the try clause? What goes in the except clause?
 
-(5 > 4) and (3 == 5)
-not (5 > 4)
-(5 > 4) or (3 == 5)
-not ((5 > 4) or (3 == 5))
-(True and True) and (True == False)
-(not False) or (not True)
+Practice Projects
+===================
+For practice, write programs to do the following tasks.
+The Collatz Sequence
 
-Question 5: What are the six comparison operators?
-Question 6: What is the difference between the equal to operator and the assignment operator?
-Question 7: Explain what a condition is and where you would use one.
-Question 8: Identify the three blocks in this code:
+Write a function named collatz() that has one parameter named number.
+If number is even, then collatz() should print number // 2 and return this value.
+If number is odd, then collatz() should print and return 3 * number + 1.
 
-spam = 0
-if spam == 10:
-    print('eggs')
-    if spam > 5:
-        print('bacon')
-    else:
-        print('ham')
-    print('spam')
-print('spam')
+Then write a program that lets the user type in an integer and that keeps calling collatz() on that number until the function returns the value 1.
+(Amazingly enough, this sequence actually works for any integer—sooner or later, using this sequence, you’ll arrive at 1!
+Even mathematicians aren’t sure why. Your program is exploring what’s called the Collatz sequence, sometimes called “the simplest impossible math problem.”)
 
-Question 9: Write code that prints Hello if 1 is stored in spam, prints Howdy if 2 is stored in spam, and prints Greetings! if anything else is stored in spam.
-Question 10: What can you press if your program is stuck in an infinite loop?
-Question 11: What is the difference between break and continue?
-Question 12: What is the difference between range(10), range(0, 10), and range(0, 10, 1) in a for loop?
-Question 13: Write a short program that prints the numbers 1 to 10 using a for loop. Then write an equivalent program that prints the numbers 1 to 10 using a while loop.
-Question 14: If you had a function named bacon() inside a module named spam, how would you call it after importing spam?
+Remember to convert the return value from input() to an integer with the int() function; otherwise, it will be a string value.
 
-Extra credit: Look up the round() and abs() functions on the Internet, and find out what they do. Experiment with them in the interactive shell.
+Hint: An integer number is even if number % 2 == 0, and it’s odd if number % 2 == 1.
+
+The output of this program could look something like this:
+===========================================================
+Enter number:
+3
+10
+5
+16
+8
+4
+2
+1
+
+Input Validation
+
+Add try and except statements to the previous project to detect whether the user types in a noninteger string.
+Normally, the int() function will raise a ValueError error if it is passed a noninteger string, as in int('puppy').
+In the except clause, print a message to the user saying they must enter an integer.
+
+
 """
 
-print(summary)
+print(chap3summary)
