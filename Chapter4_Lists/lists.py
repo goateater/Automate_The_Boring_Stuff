@@ -21,7 +21,7 @@ For example, enter the following into the interactive shell:
    >>> spam
    ['cat', 'bat', 'rat', 'elephant']
 
-The spam variable ❶ is still assigned only one value: the list value. But the list value itself contains other values.
+The spam variable is still assigned only one value: the list value. But the list value itself contains other values.
 The value [] is an empty list that contains no values, similar to '', the empty string.
 
 
