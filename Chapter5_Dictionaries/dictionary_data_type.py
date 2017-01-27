@@ -213,6 +213,83 @@ Traceback (most recent call last):
 KeyError: 'eggs'
 
 
+The setdefault() Method
+=======================
+You’ll often have to set a value in a dictionary for a certain key only if that key does not already have a value.
+The code looks something like this:
+
+spam = {'name': 'Pooka', 'age': 5}
+if 'color' not in spam:
+    spam['color'] = 'black'
+
+The setdefault() method offers a way to do this in one line of code.
+The first argument passed to the method is the key to check for, and
+the second argument is the value to set at that key if the key does not exist.
+If the key does exist, the setdefault() method returns the key’s value.
+Enter the following into the interactive shell:
+
+>>> spam = {'name': 'Pooka', 'age': 5}
+>>> spam.setdefault('color', 'black')
+'black'
+>>> spam
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+>>> spam.setdefault('color', 'white')
+'black'
+>>> spam
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+
+
+The first time setdefault() is called, the dictionary in spam changes to {'color': 'black', 'age': 5, 'name': 'Pooka'}.
+The method returns the value 'black' because this is now the value set for the key 'color'.
+When spam.setdefault('color', 'white') is called next, the value for that key is not changed to 'white' because spam already has a key named 'color'.
+
+The setdefault() method is a nice shortcut to ensure that a key exists.
+Here is a short program that counts the number of occurrences of each letter in a string.
+Open the file editor window and enter the following code, saving it as characterCount.py:
+
+Details and code are in characterCount.py
+
+Pretty Printing
+===============
+If you import the pprint module into your programs, you’ll have access to the
+pprint() and pformat() functions that will “pretty print” a dictionary’s values.
+
+This is helpful when you want a cleaner display of the items in a dictionary than what print() provides.
+Modify the previous characterCount.py program and save it as prettyCharacterCount.py.
+
+This time, when the program is run, the output looks much cleaner, with the keys sorted.
+
+{' ': 13,
+ ',': 1,
+ '.': 1,
+ 'A': 1,
+ 'I': 1,
+ 'a': 4,
+ 'b': 1,
+ 'c': 3,
+ 'd': 3,
+ 'e': 5,
+ 'g': 2,
+ 'h': 3,
+ 'i': 6,
+ 'k': 2,
+ 'l': 3,
+ 'n': 4,
+ 'o': 2,
+ 'p': 1,
+ 'r': 5,
+ 's': 3,
+ 't': 6,
+ 'w': 2,
+ 'y': 1}
+
+The pprint.pprint() function is especially helpful when the dictionary itself contains nested lists or dictionaries.
+
+If you want to obtain the prettified text as a string value instead of displaying it on the screen,
+call pprint.pformat() instead. These two lines are equivalent to each other:
+
+pprint.pprint(someDictionaryValue)
+print(pprint.pformat(someDictionaryValue))
 
 """
 
