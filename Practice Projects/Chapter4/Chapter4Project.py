@@ -51,3 +51,16 @@ Also, remember to pass the end keyword argument to print() if you don’t want a
 """
 
 print(project4)
+
+
+
+mylist = ['apples', 'bananas', 'tofu', 'cats']
+def comma(mylist):
+    newlist = []
+    for item in range(len(mylist)):
+        newlist.append(mylist[item])
+        print(newlist)
+        print(type(newlist))
+
+comma(mylist)
+

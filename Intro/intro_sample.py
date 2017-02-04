@@ -1,6 +1,7 @@
 passwordFile = open('SecretPasswordFile.txt')
 secretPassword = passwordFile.read()
-typedPassword = (raw_input('Enter your password: '))
+print(secretPassword)
+typedPassword = (input('Enter your password: '))
 
 if typedPassword == secretPassword:
     print('Access Granted')
