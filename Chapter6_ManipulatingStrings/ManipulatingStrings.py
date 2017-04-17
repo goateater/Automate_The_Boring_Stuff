@@ -512,18 +512,76 @@ with spaces inserted to justify the text. The first argument to both methods is 
 for the justified string. 
 
 Enter the following into the interactive shell:
-
+-----------------------------------------------
 >>> 'Hello'.rjust(10)
 '     Hello'
 >>> 'Hello'.rjust(20)
-'               Hello'
+'               Hello'l
 >>> 'Hello World'.rjust(20)
 '         Hello World'
 >>> 'Hello'.ljust(10)
 'Hello     '
 
+'Hello'.rjust(10) says that we want to right-justify 'Hello' in a string of total length 10. 
+'Hello' is five characters, so five spaces will be added to its left, giving us a string of 
+10 characters with 'Hello' justified right.
+
+An optional second argument to rjust() and ljust() will specify a fill character other than a space character. 
+Enter the following into the interactive shell:
+
+
+>>> 'Hello'.rjust(20, '*')
+'***************Hello'
+>>> 'Hello'.ljust(20, '-')
+'Hello---------------'
+
+The center() string method works like ljust() and rjust() but centers the text rather than justifying it to the left or right. 
+
+Enter the following into the interactive shell:
+
+
+>>> 'Hello'.center(20)
+'       Hello       '
+>>> 'Hello'.center(20, '=')
+'=======Hello========'
+
+
+These methods are especially useful when you need to print tabular data that has the correct spacing. 
+Open a new file editor window and enter the following code, saving it as picnicTable.py:
+
+
+def printPicnic(itemsDict, leftWidth, rightWidth):
+    print('PICNIC ITEMS'.center(leftWidth + rightWidth, '-'))
+    for k, v in itemsDict.items():
+        print(k.ljust(leftWidth, '.') + str(v).rjust(rightWidth))
+picnicItems = {'sandwiches': 4, 'apples': 12, 'cups': 4, 'cookies': 8000}
+printPicnic(picnicItems, 12, 5)
+printPicnic(picnicItems, 20, 6)
+
+In this program, we define a printPicnic() method that will take in a dictionary of information and use center(), ljust(), 
+and rjust() to display that information in a neatly aligned table-like format.
+
+The dictionary that we’ll pass to printPicnic() is picnicItems. 
+In picnicItems, we have 4 sandwiches, 12 apples, 4 cups, and 8000 cookies. 
+We want to organize this information into two columns, with the name of the item on the left and the quantity on the right.
+
+To do this, we decide how wide we want the left and right columns to be. 
+Along with our dictionary, we’ll pass these values to printPicnic().
+
+printPicnic() takes in a dictionary, a leftWidth for the left column of a table, and a rightWidth for the right column. 
+It prints a title, PICNIC ITEMS, centered above the table. 
+
+Then, it loops through the dictionary, printing each key-value pair on a line with the key justified left 
+and padded by periods, and the value justified right and padded by spaces.
+
+
+
+
+
 
 
 """
+
+
 
 print(manip_Strings)
