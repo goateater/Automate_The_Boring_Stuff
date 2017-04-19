@@ -535,7 +535,8 @@ Enter the following into the interactive shell:
 >>> 'Hello'.ljust(20, '-')
 'Hello---------------'
 
-The center() string method works like ljust() and rjust() but centers the text rather than justifying it to the left or right. 
+The center() string method works like ljust() and rjust() but 
+centers the text rather than justifying it to the left or right. 
 
 Enter the following into the interactive shell:
 
@@ -558,15 +559,20 @@ picnicItems = {'sandwiches': 4, 'apples': 12, 'cups': 4, 'cookies': 8000}
 printPicnic(picnicItems, 12, 5)
 printPicnic(picnicItems, 20, 6)
 
-In this program, we define a printPicnic() method that will take in a dictionary of information and use center(), ljust(), 
+
+
+1) In this program, we define a printPicnic() method that will take in a dictionary of information and use center(), ljust(), 
 and rjust() to display that information in a neatly aligned table-like format.
 
-The dictionary that we’ll pass to printPicnic() is picnicItems. 
-In picnicItems, we have 4 sandwiches, 12 apples, 4 cups, and 8000 cookies. 
-We want to organize this information into two columns, with the name of the item on the left and the quantity on the right.
+2) The dictionary that we’ll pass to printPicnic() is picnicItems. 
 
-To do this, we decide how wide we want the left and right columns to be. 
-Along with our dictionary, we’ll pass these values to printPicnic().
+3) In picnicItems, we have 4 sandwiches, 12 apples, 4 cups, and 8000 cookies. 
+
+4) We want to organize this information into two columns, with the name of the item on the left and the quantity on the right.
+
+5) To do this, we decide how wide we want the left and right columns to be. 
+
+6) Along with our dictionary, we’ll pass these values to printPicnic().
 
 printPicnic() takes in a dictionary, a leftWidth for the left column of a table, and a rightWidth for the right column. 
 It prints a title, PICNIC ITEMS, centered above the table. 
@@ -574,14 +580,101 @@ It prints a title, PICNIC ITEMS, centered above the table.
 Then, it loops through the dictionary, printing each key-value pair on a line with the key justified left 
 and padded by periods, and the value justified right and padded by spaces.
 
+After defining printPicnic(), we define the dictionary picnicItems and call printPicnic() twice, 
+passing it different widths for the left and right table columns.
+
+When you run this program, the picnic items are displayed twice. 
+The first time the left column is 12 characters wide, and the right column is 5 characters wide. 
+The second time they are 20 and 6 characters wide, respectively.
 
 
+---PICNIC ITEMS--
+sandwiches..    4
+apples......   12
+cups........    4
+cookies..... 8000
+-------PICNIC ITEMS-------
+sandwiches..........     4
+apples..............    12
+cups................     4
+cookies.............  8000
 
 
+Using rjust(), ljust(), and center() lets you ensure that strings are neatly aligned, 
+even if you aren’t sure how many characters long your strings are.
 
+
+Removing Whitespace with strip(), rstrip(), and lstrip()
+========================================================
+Sometimes you may want to strip off whitespace characters (space, tab, and newline) from the left side, right side, or both sides of a string. 
+The strip() string method will return a new string without any whitespace characters at the beginning or end. 
+The lstrip() and rstrip() methods will remove whitespace characters from the left and right ends, respectively.
+
+Enter the following into the interactive shell:
+-----------------------------------------------
+>>> spam = '    Hello World     '
+>>> spam.strip()
+'Hello World'
+>>> spam.lstrip()
+'Hello World '
+>>> spam.rstrip()
+'    Hello World'
+
+Optionally, a string argument will specify which characters on the ends should be stripped. 
+Enter the following into the interactive shell:
+----------------------------------------------
+>>> spam = 'SpamSpamBaconSpamEggsSpamSpam'
+>>> spam.strip('ampS')
+'BaconSpamEggs'
+
+
+Passing strip() the argument 'ampS' will tell it to strip occurences of a, m, p, 
+and capital S from the ends of the string stored in spam. 
+
+The order of the characters in the string passed to strip() does not matter: 
+strip('ampS') will do the same thing as strip('mapS') or strip('Spam').
+
+Copying and Pasting Strings with the pyperclip Module
+=====================================================
+The pyperclip module has copy() and paste() functions that can send text to and receive text from your computer’s clipboard. 
+Sending the output of your program to the clipboard will make it easy to paste it to an email, word processor, or some other software.
+
+Pyperclip does not come with Python. 
+To install it, follow the directions for installing third-party modules in Appendix A. 
+After installing the pyperclip module, enter the following into the interactive shell:
+
+>>> import pyperclip
+>>> pyperclip.copy('Hello world!')
+>>> pyperclip.paste()
+'Hello world!'
+
+Of course, if something outside of your program changes the clipboard contents, the paste() function will return it. 
+For example, if I copied this sentence to the clipboard and then called paste(), it would look like this:
+
+
+>>> pyperclip.paste()
+'For example, if I copied this sentence to the clipboard and then called
+paste(), it would look like this:'
+
+
+Running Python Scripts Outside of IDLE
+======================================
+So far, you’ve been running your Python scripts using the interactive shell and file editor in IDLE. ++++++++++
+However, you won’t want to go through the inconvenience of opening IDLE and the Python script each time you want 
+to run a script. 
+
+Fortunately, there are shortcuts you can set up to make running Python scripts easier. 
+The steps are slightly different for Windows, OS X, and Linux, but each is described in Appendix B. 
+
+Turn to Appendix B to learn how to run your Python scripts conveniently and be able to pass command line arguments to them. 
+(You will not be able to pass command line arguments to your programs using IDLE.)
 
 """
 
 
 
 print(manip_Strings)
+
+import pyperclip
+pyperclip.copy('Hello World!')
+pyperclip.paste()

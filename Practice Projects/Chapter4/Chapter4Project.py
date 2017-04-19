@@ -52,78 +52,15 @@ Also, remember to pass the end keyword argument to print() if you don’t want a
 
 print(project4)
 
-stringconversion = """
-
-How does one convert a list to a string?
-========================================
-By using ''.join
-
-list1 = ['1', '2', '3']
-str1 = ''.join(list1)
-
-Or if the list is of integers, convert the elements before joining them.
-
-list1 = [1, 2, 3]
-str1 = ''.join(str(e) for e in list1)
-
-"""
-
-print(stringconversion)
-
-print('Chapter 4 - Excercise 1')
-print('-----------------------')
-def comma(mylist):
-    newlist = []
-    for i in range(len(mylist) -1):
-        newlist.append(mylist[i]+',')
-        #print(newlist)
-    newlist.append('and '+mylist[-1])
-    #print(newlist)
-    stringconvert = "".join(newlist)
-    print(stringconvert)
-    print(type(stringconvert))
 
 
 mylist = ['apples', 'bananas', 'tofu', 'cats']
-(comma(mylist))
+def comma(mylist):
+    newlist = []
+    for item in range(len(mylist)):
+        newlist.append(mylist[item])
+        print(newlist)
+        print(type(newlist))
 
-print()
-print('Chapter 4 - Excercise 2')
-print('Completed two seperate ways')
-print('----------------------------')
-
-
-grid = [['.', '.', '.', '.', '.', '.'],
-        ['.', 'O', 'O', '.', '.', '.'],
-        ['O', 'O', 'O', 'O', '.', '.'],
-        ['O', 'O', 'O', 'O', 'O', '.'],
-        ['.', 'O', 'O', 'O', 'O', 'O'],
-        ['O', 'O', 'O', 'O', 'O', '.'],
-        ['O', 'O', 'O', 'O', '.', '.'],
-        ['.', 'O', 'O', '.', '.', '.'],
-        ['.', '.', '.', '.', '.', '.']]
-
-
-newstring = ''
-newstring1 = '\n'
-newstring2 = '\n'
-newstring3 = '\n'
-newstring4 = '\n'
-newstring5  = '\n'
-for i in range(len(grid)):
-    newstring = newstring + str(grid[i][0])
-    newstring1 = newstring1 + str(grid[i][1])
-    newstring2 = newstring2 + str(grid[i][2])
-    newstring3 = newstring3 + str(grid[i][3])
-    newstring4 = newstring4 + str(grid[i][4])
-    newstring5 = newstring5 + str(grid[i][5])
-heart = newstring + newstring1 +newstring2 + newstring3 + newstring4 + newstring5
-print(heart)
-
-print()
-
-for i in range(len(grid[0])):
-    print()
-    for j in range(len(grid)):
-        print(grid[j][i], end='')
+comma(mylist)
 
