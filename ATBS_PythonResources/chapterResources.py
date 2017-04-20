@@ -38,7 +38,7 @@ Page 389, RGB color values: https://en.wikipedia.org/wiki/Web_colors
 Chapter 18
 Page 431, Generic web form: http://autbor.com/form
 
-Page 439, Building a Python bot that plays web games: http://inventwithpython.com/blog/2014/12/17/programming-a-bot-to-play-th...
+Page 439, Building a Python bot that plays web games: http://inventwithpython.com/blog/2014/12/17/programming-a-bot-to-play-the-sushi-go-round-flash-game/
 
 Appendix C
 Page 447, List of websites with programming practice problems: https://automatetheboringstuff.com/list-of-programming-practice-sites.html
