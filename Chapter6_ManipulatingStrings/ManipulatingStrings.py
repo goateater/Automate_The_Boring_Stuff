@@ -669,6 +669,93 @@ The steps are slightly different for Windows, OS X, and Linux, but each is descr
 Turn to Appendix B to learn how to run your Python scripts conveniently and be able to pass command line arguments to them. 
 (You will not be able to pass command line arguments to your programs using IDLE.)
 
+
+Summary
+========
+Text is a common form of data, and Python comes with many helpful string methods to process the text stored in string values. 
+You will make use of indexing, slicing, and string methods in almost every Python program you write.
+
+The programs you are writing now don’t seem too sophisticated—they don’t have graphical user interfaces with images and colorful text. 
+So far, you’re displaying text with print() and letting the user enter text with input(). 
+However, the user can quickly enter large amounts of text through the clipboard. 
+This ability provides a useful avenue for writing programs that manipulate massive amounts of text. 
+These text-based programs might not have flashy windows or graphics, but they can get a lot of useful work done quickly.
+
+Another way to manipulate large amounts of text is reading and writing files directly off the hard drive. 
+You’ll learn how to do this with Python in the next chapter.
+
+That just about covers all the basic concepts of Python programming! 
+You’ll continue to learn new concepts throughout the rest of this book, but you now know enough to start writing some 
+useful programs that can automate tasks. You might not think you have enough Python knowledge to do things such as 
+download web pages, update spreadsheets, or send text messages, but that’s where Python modules come in! 
+
+These modules, written by other programmers, provide functions that make it easy for you to do all these things. 
+So let’s learn how to write real programs to do useful automated tasks.
+
+Practice Questions
+
+
+Q:1. What are escape characters?
+
+Q:2. What do the \n and \t escape characters represent?
+
+Q:3. How can you put a \ backslash character in a string?
+
+Q:4. The string value "Howl's Moving Castle" is a valid string. Why isn’t it a problem that the single quote character in the word Howl's isn’t escaped?
+
+Q:5. If you don’t want to put \n in your string, how can you write a string with newlines in it?
+
+Q:6. What do the following expressions evaluate to?
+
+'Hello world!'[1]
+
+'Hello world!'[0:5]
+
+'Hello world!'[:5]
+
+'Hello world!'[3:]
+
+Q:7. What do the following expressions evaluate to?
+
+'Hello'.upper()
+
+'Hello'.upper().isupper()
+
+'Hello'.upper().lower()
+
+Q:8. What do the following expressions evaluate to?
+
+'Remember, remember, the fifth of November.'.split()
+
+'-'.join('There can be only one.'.split())
+
+Q:9. What string methods can you use to right-justify, left-justify, and center a string?
+
+Q:10. How can you trim whitespace characters from the beginning or end of a string?
+
+Practice Project
+================
+For practice, write a program that does the following.
+
+Table Printer
+==============
+Write a function named printTable() that takes a list of lists of strings and displays it in a well-organized table with 
+each column right-justified. Assume that all the inner lists will contain the same number of strings. 
+
+For example, the value could look like this:
+
+
+tableData = [['apples', 'oranges', 'cherries', 'banana'],
+             ['Alice', 'Bob', 'Carol', 'David'],
+             ['dogs', 'cats', 'moose', 'goose']]
+Your printTable() function would print the following:
+
+
+  apples Alice  dogs
+ oranges   Bob  cats
+cherries Carol moose
+  banana David goose
+Hint: Your code will first have to find the longest string in each of the inner lists so that the whole column can be wide enough to fit all the strings. You can store the maximum width of each column as a list of integers. The printTable() function can begin with colWidths = [0] * len(tableData), which will create a list containing the same number of 0 values as the number of inner lists in tableData. That way, colWidths[0] can store the width of the longest string in tableData[0], colWidths[1] can store the width of the longest string in tableData[1], and so on. You can then find the largest value in the colWidths list to find out what integer width to pass to the rjust() string method.
 """
 
 
@@ -677,4 +764,4 @@ print(manip_Strings)
 
 import pyperclip
 pyperclip.copy('Hello World!')
-pyperclip.paste()
+print (pyperclip.paste())
