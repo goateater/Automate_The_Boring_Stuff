@@ -118,9 +118,9 @@ Python as a programming language, just like the grammar rules that help us commu
 
 Here’s an example:
 
-This is a grammatically correct English sentence.
+* This is a grammatically correct English sentence.
 
-This grammatically is sentence not English correct a.
+* This grammatically is sentence not English correct a.
 
 The second line is difficult to parse because it doesn’t follow the rules of English. 
 Similarly, if you type in a bad Python instruction, Python won’t be able to understand 

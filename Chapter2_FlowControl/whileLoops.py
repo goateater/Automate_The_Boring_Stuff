@@ -15,6 +15,48 @@ You can see that a while statement looks similar to an if statement.
 The difference is in how they behave. At the end of an if clause, the program execution continues after the if statement.
 But at the end of a while clause, the program execution jumps back to the start of the while statement.
 The while clause is often called the while loop or just the loop.
+
+Let’s look at an if statement and a while loop that use the same condition and take the same actions based on that condition. 
+Here is the code with an if statement:
+
+spam = 0
+if spam < 5:
+    print('Hello, world.')
+    spam = spam + 1
+    
+
+Here is the code with a while statement:
+
+spam = 0
+while spam < 5:
+    print('Hello, world.')
+    spam = spam + 1
+    
+
+These statements are similar—both if and while check the value of spam, and if it’s less than five, they print a message. 
+But when you run these two code snippets, something very different happens for each one. 
+For the if statement, the output is simply "Hello, world.". 
+But for the while statement, it’s "Hello, world." repeated five times! 
+Take a look at the flowcharts for these two pieces of code, Figure 2-9 and Figure 2-10, to see why this happens.
+
+2-9) https://automatetheboringstuff.com/images/000091.png
+2-10) https://automatetheboringstuff.com/images/000094.png
+
+The code with the if statement checks the condition, and it prints Hello, world. 
+only once if that condition is true. 
+The code with the while loop, on the other hand, will print it five times. 
+It stops after five prints because the integer in spam is incremented by one at the end of each loop iteration, 
+which means that the loop will execute five times before spam < 5 is False.
+
+In the while loop, the condition is always checked at the start of each iteration (that is, each time the loop is executed). 
+If the condition is True, then the clause is executed, and afterward, the condition is checked again. 
+The first time the condition is found to be False, the while clause is skipped.
+
+
+An Annoying while Loop
+======================
+
+
 """
 
 
