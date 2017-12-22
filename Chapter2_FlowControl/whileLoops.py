@@ -237,24 +237,18 @@ Access granted.
 
 for Loops and the range() Function
 ===================================
-
 The while loop keeps looping while its condition is True (which is the reason for its name), 
-but what if you want to execute a block of code only a certain number of times? You can do 
-this with a for loop statement and the range() function.
+but what if you want to execute a block of code only a certain number of times? 
+You can do this with a for loop statement and the range() function.
 
 In code, a for statement looks something like for i in range(5): and always includes the following:
 
-The for keyword
-
-A variable name
-
-The in keyword
-
-A call to the range() method with up to three integers passed to it
-
-A colon
-
-Starting on the next line, an indented block of code (called the for clause)
+* The for keyword
+* A variable name
+* The in keyword
+* A call to the range() method with up to three integers passed to it
+* A colon
+* Starting on the next line, an indented block of code (called the for clause)
 
 Let’s create a new program called fiveTimes.py to help you see a for loop in action.
 
@@ -277,8 +271,8 @@ The print() call in the clause will print Jimmy Five Times (0).
 After Python finishes an iteration through all the code inside the for loop’s clause, 
 the execution goes back to the top of the loop, and the for statement increments i by one. 
 
-This is why range(5) results in five iterations through the clause, with i being set to 0, 
-then 1, then 2, then 3, and then 4. 
+This is why range(5) results in five iterations through the clause, 
+with i being set to 0, then 1, then 2, then 3, and then 4. 
 
 The variable i will go up to, but will not include, the integer passed to range(). 
 Figure 2-14 shows a flowchart for the fiveTimes.py program.
@@ -344,6 +338,13 @@ while i < 5:
 
 If you run this program, the output should look the same as the fiveTimes.py program, which uses a for loop.
 
+My name is
+Jimmy Five Times (0)
+Jimmy Five Times (1)
+Jimmy Five Times (2)
+Jimmy Five Times (3)
+Jimmy Five Times (4)
+
 The Starting, Stopping, and Stepping Arguments to range()
 ==========================================================
 Some functions can be called with multiple arguments separated by a comma, and range() is one of them. 
@@ -396,6 +397,91 @@ Running a for loop to print i with range(5, -1, -1) should print from five down 
 
 Importing Modules
 =================
+All Python programs can call a basic set of functions called built-in functions, including the print(), input(), 
+and len() functions you’ve seen before. Python also comes with a set of modules called the standard library. 
+
+Each module is a Python program that contains a related group of functions that can be embedded in your programs. 
+For example, the math module has mathematics-related functions, the random module has random number–related functions, and so on.
+
+Before you can use the functions in a module, you must import the module with an import statement. 
+In code, an import statement consists of the following:
+
+* The import keyword
+* The name of the module
+* Optionally, more module names, as long as they are separated by commas
+
+Once you import a module, you can use all the cool functions of that module. 
+Let’s give it a try with the random module, which will give us access to the random.randint() function.
+
+Enter this code into the file editor, and save it as printRandom.py:
+
+import random
+for i in range(5):
+    print(random.randint(1, 10))
+    
+
+When you run this program, the output will look something like this:
+
+
+4
+1
+8
+4
+1
+
+The random.randint() function call evaluates to a random integer value between the two integers that you pass it. 
+Since randint() is in the random module, you must first type random. in front of the function name to tell Python 
+to look for this function inside the random module.
+
+Here’s an example of an import statement that imports four different modules:
+
+
+import random, sys, os, math
+Now we can use any of the functions in these four modules. We’ll learn more about them later in the book.
+
+from import Statements
+=======================
+
+An alternative form of the import statement is composed of the from keyword, followed 
+by the module name, the import keyword, and a star; for example, from random import *.
+
+With this form of import statement, calls to functions in random will not need the random. prefix. 
+However, using the full name makes for more readable code, so it is better to use the normal form of the import statement.
+
+Ending a Program Early with sys.exit()
+======================================
+The last flow control concept to cover is how to terminate the program. 
+This always happens if the program execution reaches the bottom of the instructions. 
+However, you can cause the program to terminate, or exit, by calling the sys.exit() function. 
+Since this function is in the sys module, you have to import sys before your program can use it.
+
+Open a new file editor window and enter the following code, saving it as exitExample.py:
+
+
+import sys
+
+while True:
+    print('Type exit to exit.')
+    response = input()
+    if response == 'exit':
+        sys.exit()
+    print('You typed ' + response + '.')
+    
+Run this program in IDLE. 
+This program has an infinite loop with no break statement inside. 
+The only way this program will end is if the user enters exit, causing sys.exit() to be called. 
+When response is equal to exit, the program ends. 
+Since the response variable is set by the input() function, the user must enter exit in order to stop the program.
+
+
+Summary
+=======
+By using expressions that evaluate to True or False (also called conditions), you can write programs that make decisions 
+on what code to execute and what code to skip. You can also execute code over and over again in a loop while a certain 
+condition evaluates to True. The break and continue statements are useful if you need to exit a loop or jump back to the start.
+
+These flow control statements will let you write much more intelligent programs. 
+There’s another type of flow control that you can achieve by writing your own functions, which is the topic of the next chapter.
 
 
 
