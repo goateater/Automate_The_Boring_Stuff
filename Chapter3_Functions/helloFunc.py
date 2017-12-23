@@ -18,10 +18,13 @@ Below is an example of its usage.
 
 print(endsep)
 
+name = input("Please enter your name: ")
+
 def hello2(name):
     print('Hello ' + name)
 
 hello()
+hello2(name)
 hello2("Alice")
 hello2("Bob")
 
