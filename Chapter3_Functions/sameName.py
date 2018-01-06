@@ -9,6 +9,7 @@ def bacon():
     print(eggs) # print 'bacon local'
 
 eggs = 'global'
+spam()
 bacon()
 print(eggs) # prints 'global'
 

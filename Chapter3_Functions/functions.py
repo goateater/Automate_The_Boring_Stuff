@@ -420,7 +420,7 @@ Since these three separate variables all have the same name, it can be confusing
 keep track of which one is being used at any given time. This is why you should 
 avoid using the same variable name in different scopes.
 
-The global Statement
+The Global Statement
 ====================
 If you need to modify a global variable from within a function, use the global 
 statement. If you have a line such as global eggs at the top of a function, it tells 
@@ -621,9 +621,29 @@ The reason print(spam(1)) is never executed is because once the execution jumps
 to the code in the except clause, it does not return to the try clause. Instead, it just 
 continues moving down as normal.
 
-A Short Program: Guess the Number
-=================================
+A Short Program: Guess the Number (Writing a Guess the Number Game)
+===================================================================
+The toy examples I’ve shown you so far are useful for introducing basic concepts, 
+but now let’s see how everything you’ve learned comes together in a more 
+complete program. In this section, I’ll show you a simple “guess the number” 
+game. When you run this program, the output will look something like this:
 
+I am thinking of a number between 1 and 20.
+Take a guess.
+10
+Your guess is too low.
+Take a guess.
+15
+Your guess is too low.
+Take a guess.
+17
+Your guess is too high.
+Take a guess.
+16
+Good job! You guessed my number in 4 guesses!
+
+Type the following source code into the file editor, and save the file as 
+guessTheNumber.py:
 
 """
 

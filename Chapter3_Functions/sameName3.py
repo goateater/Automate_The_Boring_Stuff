@@ -8,6 +8,6 @@ def bacon():
 def ham():
     print(eggs) # this is the global
 
-eggs = 42 # this i s the global
+eggs = 42 # this is the global
 spam()
 print(eggs)
