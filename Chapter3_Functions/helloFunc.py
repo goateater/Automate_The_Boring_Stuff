@@ -21,7 +21,7 @@ print(endsep)
 name = input("Please enter your name: ")
 
 def hello2(name):
-    print('Hello ' + name)
+    print('Hello ' + name.title())
 
 hello()
 hello2(name)

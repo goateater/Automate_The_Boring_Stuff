@@ -1,7 +1,7 @@
 import random
 
 
-def getAnswer(answernumber):
+def getanswer(answernumber):
     if answernumber == 1:
         return "It is certain."
     elif answernumber == 2:
@@ -25,6 +25,6 @@ def getAnswer(answernumber):
 # fortune = getAnswer(r)
 # print(fortune)
 
-print("Think of a yes/no question, and press enter to see the answer: ")
+print("Think of a yes or no question, and press enter to see the answer: ")
 input()
-print(getAnswer(random.randint(1,9)))
+print(getanswer(random.randint(1,9)))

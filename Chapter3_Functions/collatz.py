@@ -1,6 +1,7 @@
 def collatz(number):
 
     if number % 2 == 0:
+        number = int(number)
         print(number // 2)
         return number // 2
 
