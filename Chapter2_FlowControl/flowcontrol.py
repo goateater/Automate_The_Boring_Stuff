@@ -25,8 +25,8 @@ and | or | not
 The AND Operator's Truth Table
 ==============================
 The AND operator evaluates an expression to True if both Boolean values are True; otherwise, it evaluates to False.
-Expression              Evaluates to...
--------------           ----------------
+Expression              Evaluates to
+-------------           ------------
 True and True               True
 True and False              False
 False and True              False
@@ -36,8 +36,8 @@ The OR operator's  Truth Table
 ===============================
 The OR operator evaluates an expression to True if either of the two Boolean values is True. If both are False, it evaluates to False.
 
-Expression              Evaluates to...
--------------           ----------------
+Expression              Evaluates to
+-------------           ------------
 True and True               True
 True and False              True
 False and True              True
