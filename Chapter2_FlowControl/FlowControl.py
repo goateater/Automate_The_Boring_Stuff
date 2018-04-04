@@ -2,18 +2,20 @@ fcs = """
 
 Flow Control
 =============
-So you know the basics of individual instructions and that a program is just a series of instructions. 
-But the real strength of programming isn’t just running (or executing) one instruction after another like a weekend errand list. 
-Based on how the expressions evaluate, the program can decide to skip instructions, repeat them, or choose one of several instructions to run. 
-In fact, you almost never want your programs to start from the first line of code and simply execute every line, straight to the end. 
-Flow control statements can decide which Python instructions to execute under which conditions.
+So you know the basics of individual instructions and that a program is just a 
+series of instructions. But the real strength of programming isn’t just running (or 
+executing) one instruction after another like a weekend errand list. Based on how 
+the expressions evaluate, the program can decide to skip instructions, repeat them, 
+or choose one of several instructions to run. In fact, you almost never want your 
+programs to start from the first line of code and simply execute every line, straight 
+to the end. Flow control statements can decide which Python instructions to 
+execute under which conditions.
 
 
-These flow control statements directly correspond to the symbols in a flowchart, so I’ll provide flowchart versions of the code 
-discussed in this chapter. 
-
-Figure 2-1 shows a flowchart for what to do if it’s raining. 
-Follow the path made by the arrows from Start to End.
+These flow control statements directly correspond to the symbols in a flowchart, so 
+I’ll provide flowchart versions of the code discussed in this chapter. Figure 2-1 
+shows a flowchart for what to do if it’s raining. Follow the path made by the arrows 
+from Start to End.
 
 Figure 2-1) https://automatetheboringstuff.com/images/000105.jpg
 
