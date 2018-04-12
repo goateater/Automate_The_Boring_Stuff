@@ -17,55 +17,163 @@ I’ll provide flowchart versions of the code discussed in this chapter. Figure 
 shows a flowchart for what to do if it’s raining. Follow the path made by the arrows 
 from Start to End.
 
-Figure 2-1) https://automatetheboringstuff.com/images/000105.jpg
+Figure 2-1. A flowchart to tell you what to do if it is raining
+https://automatetheboringstuff.com/images/000105.jpg
 
 
 In a flowchart, there is usually more than one way to go from the start to the end. 
-The same is true for lines of code in a computer program. 
-Flowcharts represent these branching points with diamonds, while the other steps are represented with rectangles. 
-The starting and ending steps are represented with rounded rectangles.
+The same is true for lines of code in a computer program. Flowcharts represent 
+these branching points with diamonds, while the other steps are represented with 
+rectangles. The starting and ending steps are represented with rounded rectangles.
 
-But before you learn about flow control statements, you first need to learn how to represent those yes and no options, 
-and you need to understand how to write those branching points as Python code. To that end, let’s explore Boolean values, 
+But before you learn about flow control statements, you first need to learn how to 
+represent those yes and no options, and you need to understand how to write 
+those branching points as Python code. To that end, let’s explore Boolean values, 
 comparison operators, and Boolean operators.
 
 
 Boolean Values
 ===============
-While the integer, floating-point, and string data types have an unlimited number of possible values, 
-the Boolean data type has only two values: True and False. 
+While the integer, floating-point, and string data types have an unlimited number 
+of possible values, the Boolean data type has only two values: True and False. 
+(Boolean is capitalized because the data type is named after mathematician George 
+Boole.) When typed as Python code, the Boolean values True and False lack the 
+quotes you place around strings, and they always start with a capital T or F, with 
+the rest of the word in lowercase.  Enter the following into the interactive shell. 
+(Some of these instructions are intentionally incorrect, and they’ll cause error messages to appear.)
 
-(Boolean is capitalized because the data type is named after mathematician George Boole.) 
-When typed as Python code, the Boolean values True and False lack the quotes you place around strings, 
-and they always start with a capital T or F, with the rest of the word in lowercase. 
+>>> spam = True
+>>> spam
+True
+>>> true
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+NameError: name 'true' is not defined
+>>> True = 2 + 2
+  File "<input>", line 1
+SyntaxError: can't assign to keyword
 
-Like any other value, Boolean values are used in expressions and can be stored in variables ❶. 
-If you don’t use the proper case ❷ or you try to use True and False for variable names ❸, Python will give you an error message.
+
+
+Like any other value, Boolean values are used in expressions and can be stored in 
+variables ❶. If you don’t use the proper case ❷ or you try to use True and False for 
+variable names ❸, Python will give you an error message.
 
 Comparison Operators
 ====================
-== Equal to
-!= Not equal to
-<  Less than
-> Greater than
-<- Less than or equal to
--> Greater than or equal to
+Comparison operators compare two values and evaluate down to a single 
+Boolean value. Table 2-1 lists the comparison operators.
+
+Table 2-1. Comparison Operators
+===============================
+
+Operator            Meaning
+============================
+==                  Equal to
+!=                  Not equal to
+<                   Less than
+>                   Greater than
+<=                  Less than or equal to
+>=                  Greater than or equal to
+
+
+These operators evaluate to True or False depending on the values you give them. 
+Let’s try some operators now, starting with == and !=.
+
+>>> 42 == 42
+True
+>>> 42 == 99
+False
+>>> 2 != 3
+True
+>>> 2 != 2
+False
+
+As you might expect, == (equal to) evaluates to True when the values on both sides 
+are the same, and != (not equal to) evaluates to True when the two values are 
+different. The == and != operators can actually work with values of any data type.
+
+
+>>> 'hello' == 'hello'
+True
+>>> 'hello' == 'Hello'
+False
+>>> 'dog' != 'cat'
+True
+>>> True == True
+True
+>>> True != False
+True
+>>> 42 == 42.0
+True
+
+
+
+Note that an integer or floating-point value will always be unequal to a string 
+value. The expression 42 == '42' ❶ evaluates to False because Python considers 
+the integer 42 to be different from the string '42'.
+
+The <, >, <=, and >= operators, on the other hand, work properly only with integer 
+and floating-point values.
+
+>>> 42 < 100
+True
+>>> 42 > 100
+False
+>>> 42 < 42
+False
+>>> eggCount = 42
+>>> eggCount <= 42
+True
+>>> myAge = 29
+>>> myAge >= 10
+True
+
+The Difference Between the == and = Operators
+
+You might have noticed that the == operator (equal to) has two equal signs, while 
+the = operator (assignment) has just one equal sign. It’s easy to confuse these two 
+operators with each other. Just remember these points:
+
+The == operator (equal to) asks whether two values are the same as each other.
+
+The = operator (assignment) puts the value on the right into the variable on the left.
+
+
+To help remember which is which, notice that the == operator (equal to) consists of 
+two characters, just like the != operator (not equal to) consists of two characters.
+
+You’ll often use comparison operators to compare a variable’s value to some other 
+value, like in the eggCount <= 42 ❶ and myAge >= 10 ❷ examples. (After all, 
+instead of typing 'dog' != 'cat' in your code, you could have just typed True.) 
+You’ll see more examples of this later when you learn about flow control statements.
+
 
 Boolean Operators
 ==================
-he three Boolean operators (and, or, and not) are used to compare Boolean values. 
-Like comparison operators, they evaluate these expressions down to a Boolean value. 
-Let’s explore these operators in detail, starting with the and operator.
+The three Boolean operators (and, or, and not) are used to compare Boolean 
+values. Like comparison operators, they evaluate these expressions down to a 
+Boolean value. Let’s explore these operators in detail, starting with the and 
+operator.
 
 Binary Boolean Operators
 =========================
-The (and) and (or) operators always take two Boolean values (or expressions), so they’re considered binary operators. 
-The and operator evaluates an expression to True if both Boolean values are True; otherwise, it evaluates to False. 
+The (and) and (or) operators always take two Boolean values (or expressions), so 
+they’re considered binary operators. The and operator evaluates an expression to 
+True if both Boolean values are True; otherwise, it evaluates to False. Enter some 
+expressions using and into the interactive shell to see it in action.
 
+>>> True and True
+True
+>>> True and False
+False
 
-The AND Operator's Truth Table
-------------------------------
-The AND operator evaluates an expression to True if both Boolean values are True; otherwise, it evaluates to False.
+A truth table shows every possible result of a Boolean operator. Table 2-2 is the 
+truth table for the and operator.
+
+Table 2-2. The and Operator’s Truth Table
+=========================================
+
 Expression              Evaluates to...
 -------------           ----------------
 True and True               True
@@ -73,66 +181,112 @@ True and False              False
 False and True              False
 False and False             False
 
+On the other hand, the or operator evaluates an expression to True if either of the 
+two Boolean values is True. If both are False, it evaluates to False.
+
+>>> False or True
+True
+
+You can see every possible outcome of the or operator in its truth table, shown in 
+Table 2-3.
+
+Table 2-3. The or Operator’s Truth Table
+========================================
+Expression              Evaluates to...
+True or True            True
+True or False           True
+False or True           True
+False or False          False
+
 
 The not Operator
 ================
-Unlike and and or, the not operator operates on only one Boolean value (or expression). 
-The not operator simply evaluates to the opposite Boolean value.
+Unlike and and or, the not operator operates on only one Boolean value (or 
+expression). The not operator simply evaluates to the opposite Boolean value.
 
-Much like using double negatives in speech and writing, you can nest not operators ❶, 
-though there’s never not no reason to do this in real programs. 
+>>> not True
+False
+>>> not not not not True
+True
+
+Much like using double negatives in speech and writing, you can nest not 
+operators ❶, though there’s never not no reason to do this in real programs. 
 
 Table 2-4. The not Operator’s Truth Table
-
+=========================================
 Expression      Evaluates to...
----------       ---------------
 not True        False           
 not False       True
 
 
 Mixing Boolean and Comparison Operators
 ========================================
-Since the comparison operators evaluate to Boolean values, you can use them in expressions with the Boolean operators.
-Recall that the and, or, and not operators are called Boolean operators because they always operate on the Boolean values
-True and False. While expressions like 4 < 5 aren’t Boolean values, they are expressions that evaluate down to Boolean values.
+Since the comparison operators evaluate to Boolean values, you can use them in 
+expressions with the Boolean operators. 
 
-The computer will evaluate the left expression first, and then it will evaluate the right expression. 
-When it knows the Boolean value for each, it will then evaluate the whole expression down to one Boolean value. 
-You can think of the computer’s evaluation process for (4 < 5) and (5 < 6) as shown in Figure 2-2.
+Recall that the and, or, and not operators are called Boolean operators because 
+they always operate on the Boolean values True and False. While expressions like 4 
+< 5 aren’t Boolean values, they are expressions that evaluate down to Boolean 
+values. Try entering some Boolean expressions that use comparison operators into 
+the interactive shell.
 
-You can also use multiple Boolean operators in an expression, along with the comparison operators.
 
-Boolean Order of Operation
-==========================
+>>> (4 < 5 ) and (5 < 6 )
+True
+>>> (4 < 5 ) and (9 < 6)
+False
+>>> (1 == 2) or (2 == 2)
+True
+
+The computer will evaluate the left expression first, and then it will evaluate the 
+right expression. When it knows the Boolean value for each, it will then evaluate 
+the whole expression down to one Boolean value. You can think of the computer’s 
+evaluation process for (4 < 5) and (5 < 6) as shown in Figure 2-2.
+
+You can also use multiple Boolean operators in an expression, along with the 
+comparison operators.
+
+2 + 2 == 4 and not 2 + 2 == 5 and 2 * 2 == 2 + 2
+True
+
 The Boolean operators have an order of operations just like the math operators do. 
-After any math and comparison operators evaluate, Python evaluates the not operators first, then the and operators, and then the or operators.
+After any math and comparison operators evaluate, Python evaluates the not 
+operators first, then the and operators, and then the or operators.
+
+
+https://automatetheboringstuff.com/images/000023.jpg
+Figure 2-2. The process of evaluating (4 < 5) and (5 < 6) to True.
+
 
 
 Elements of Flow Control
 ========================
-Flow control statements often start with a part called the condition, and all are followed by a block of code called the clause. 
-Before you learn about Python’s specific flow control statements, I’ll cover what a condition and a block are.
+Flow control statements often start with a part called the condition, and all are 
+followed by a block of code called the clause. Before you learn about Python’s 
+specific flow control statements, I’ll cover what a condition and a block are.
 
 Conditions
 ==========
-The Boolean expressions you’ve seen so far could all be considered conditions, which are the same thing as expressions; 
-condition is just a more specific name in the context of flow control statements. 
-
-Conditions always evaluate down to a Boolean value, True or False. 
-A flow control statement decides what to do based on whether its condition is True or False, 
-and almost every flow control statement uses a condition.
+The Boolean expressions you’ve seen so far could all be considered conditions, 
+which are the same thing as expressions; condition is just a more specific name in 
+the context of flow control statements. Conditions always evaluate down to a 
+Boolean value, True or False. A flow control statement decides what to do based 
+on whether its condition is True or False, and almost every flow control statement 
+uses a condition.
 
 Blocks of Code
 ==============
-Lines of Python code can be grouped together in blocks. 
-You can tell when a block begins and ends from the indentation of the lines of code. 
-There are three rules for blocks.
+Lines of Python code can be grouped together in blocks. You can tell when a block 
+begins and ends from the indentation of the lines of code. There are three rules for 
+blocks.
 
 1) Blocks begin when the indentation increases.
 2) Blocks can contain other blocks.
-3) Blocks end when the indentation decreases to zero or to a containing block’s indentation.
+3) Blocks end when the indentation decreases to zero or to a containing block’s 
+indentation.
 
-Blocks are easier to understand by looking at some indented code, so let’s find the blocks in part of a small game program, shown here:
+Blocks are easier to understand by looking at some indented code, so let’s find the 
+blocks in part of a small game program, shown here:
 
 
 name = 'Mary'
@@ -145,78 +299,96 @@ if name == 'Mary':
         print('Wrong password.')
 
 
-The first block of code 
-❶ starts at the line print('Hello Mary') and contains all the lines after it. 
-Inside this block is another block ❷, which has only a single line in it: print('Access Granted.'). 
-The third block ❸ is also one line long: print('Wrong password.').
+The first block of code ❶ starts at the line print('Hello Mary') and contains all 
+the lines after it. Inside this block is another block ❷, which has only a single line 
+in it: print('Access Granted.'). The third block ❸ is also one line long: 
+print('Wrong password.').
 
 Program Execution
 ==================
-In the previous chapter’s hello.py program, Python started executing instructions at the top of the program going down, one after another. 
-The program execution (or simply, execution) is a term for the current instruction being executed. 
-If you print the source code on paper and put your finger on each line as it is executed, you can think of your finger as the program execution.
+In the previous chapter’s hello.py program, Python started executing instructions 
+at the top of the program going down, one after another. The program execution 
+(or simply, execution) is a term for the current instruction being executed. If you 
+print the source code on paper and put your finger on each line as it is executed, 
+you can think of your finger as the program execution.
 
-Not all programs execute by simply going straight down, however. 
-If you use your finger to trace through a program with flow control statements, 
-you’ll likely find yourself jumping around the source code based on conditions, and you’ll probably skip entire clauses.
+Not all programs execute by simply going straight down, however. If you use your 
+finger to trace through a program with flow control statements, you’ll likely find 
+yourself jumping around the source code based on conditions, and you’ll probably 
+skip entire clauses.
 
 Flow Control Statements
 =======================
-Now, let’s explore the most important piece of flow control: the statements themselves. 
-The statements represent the diamonds you saw in the flowchart in Figure 2-1, and they are the actual decisions your programs will make.
+Now, let’s explore the most important piece of flow control: the statements 
+themselves. The statements represent the diamonds you saw in the flowchart in 
+Figure 2-1, and they are the actual decisions your programs will make.
 
 
-if Statements
-=============
-The most common type of flow control statement is the if statement. 
-An if statement’s clause (that is, the block following the if statement) will execute if the statement’s condition is True. 
-The clause is skipped if the condition is False.
+IF Statements ( if, elif, and else )
+====================================
+The most common type of flow control statement is the if statement. An if 
+statement’s clause (that is, the block following the if statement) will execute if the 
+statement’s condition is True. The clause is skipped if the condition is False.
 
-In plain English, an if statement could be read as, “If this condition is true, execute the code in the clause.” 
-In Python, an if statement consists of the following:
+In plain English, an if statement could be read as, “If this condition is true, 
+execute the code in the clause.” In Python, an if statement consists of the 
+following:
 
 * The if keyword
 * A condition (that is, an expression that evaluates to True or False)
 * A colon
 * Starting on the next line, an indented block of code (called the if clause)
 
-For example, let’s say you have some code that checks to see whether someone’s name is Alice. 
-(Pretend name was assigned some value earlier.)
+For example, let’s say you have some code that checks to see whether someone’s 
+name is Alice.  (Pretend name was assigned some value earlier.)
 
 if name == 'Alice':
     print('Hi, Alice.')
     
-All flow control statements end with a colon and are followed by a new block of code (the clause). 
-This if statement’s clause is the block with print('Hi, Alice.'). 
-
-Figure 2-3 shows what a flowchart of this code would look like.
-
-Figure 2-3 -The flowchart for an if statement- https://automatetheboringstuff.com/images/000019.jpg
+All flow control statements end with a colon and are followed by a new block of 
+code (the clause). This if statement’s clause is the block with print('Hi,
+Alice.').  Figure 2-3 shows what a flowchart of this code would look like.
 
 
-else Statements
+https://automatetheboringstuff.com/images/000019.jpg
+Figure 2-3 -The flowchart for an if statement
+
+
+
+ELSE Statements
 ===============
-An if clause can optionally be followed by an else statement. 
-The else clause is executed only when the if statement’s condition is False. 
-In plain English, an else statement could be read as, “If this condition is true, execute this code. Or else, execute that code.” 
-An else statement doesn’t have a condition, and in code, an else statement always consists of the following:
+An if clause can optionally be followed by an else statement. The else clause is 
+executed only when the if statement’s condition is False. In plain English, an else 
+statement could be read as, “If this condition is true, execute this code. Or else, 
+execute that code.” An else statement doesn’t have a condition, and in code, an 
+else statement always consists of the following:
 
 * The else keyword
 * A colon
 * Starting on the next line, an indented block of code (called the else clause)
 
-Returning to the Alice example, let’s look at some code that uses an else statement to offer a different greeting if the person’s name isn’t Alice.
+Returning to the Alice example, let’s look at some code that uses an else statement 
+to offer a different greeting if the person’s name isn’t Alice.
+
+>>> name = "Bob"
+>>> if name == "Alice":
+...     print ("Hi Alice")
+... else:
+...     print ("Hello stranger")
+...     
+Hello stranger
+
 
 Figure 2-4 shows what a flowchart of this code would look like.
-
 https://automatetheboringstuff.com/images/000106.png
 
 
 elif Statements
 ===============
-While only one of the if or else clauses will execute, you may have a case where you want one of many possible clauses to execute. 
-The elif statement is an “else if” statement that always follows an if or another elif statement. 
-It provides another condition that is checked only if all of the previous conditions were False. 
+While only one of the if or else clauses will execute, you may have a case where 
+you want one of many possible clauses to execute. The elif statement is an “else 
+if” statement that always follows an if or another elif statement. It provides 
+another condition that is checked only if all of the previous conditions were False. 
 In code, an elif statement always consists of the following:
 
 * The elif keyword
@@ -226,60 +398,89 @@ In code, an elif statement always consists of the following:
 
 Let’s add an elif to the name checker to see this statement in action.
 
-This time, you check the person’s age, and the program will tell them something different if they’re younger than 12. 
-You can see the flowchart for this in Figure 2-5.
+>>> name = "Bob"
+>>> age = 5
+>>> if name == "Alice":
+...     print("Hi Alice")
+... elif age < 12:
+...     print("You are not Alice, kiddo!")
+...     
+You are not Alice, kiddo!
 
-Figure 2-5. The flowchart for an elif statement  -- https://automatetheboringstuff.com/images/000107.png
+
+
+This time, you check the person’s age, and the program will tell them something 
+different if they’re younger than 12. You can see the flowchart for this in Figure 2-5.
+
+https://automatetheboringstuff.com/images/000107.png
+Figure 2-5. The flowchart for an elif statement
+
 
 The elif clause executes if age < 12 is True and name == 'Alice' is False. 
 However, if both of the conditions are False, then both of the clauses are skipped. 
-It is not guaranteed that at least one of the clauses will be executed. 
-When there is a chain of elif statements, only one or none of the clauses will be executed. 
-Once one of the statements’ conditions is found to be True, the rest of the elif clauses are automatically skipped. 
+It is not guaranteed that at least one of the clauses will be executed. When there is 
+a chain of elif statements, only one or none of the clauses will be executed. Once 
+one of the statements’ conditions is found to be True, the rest of the elif clauses 
+are automatically skipped. For example, open a new file editor window and enter 
+the following code, saving it as vampire.py:
 
-For example, open a new file editor window and enter the following code, saving it as vampire.py:
+view vampire.py for the if elif statement examples
 
-Here I’ve added two more elif statements to make the name checker greet a person with different answers based on age. 
-Figure 2-6 shows the flowchart for this: https://automatetheboringstuff.com/images/000088.png
+Here I’ve added two more elif statements to make the name checker greet a 
+person with different answers based on age. Figure 2-6 shows the flowchart for 
+this: 
 
-
-The order of the elif statements does matter, however. 
-Let’s rearrange them to introduce a bug. 
-Remember that the rest of the elif clauses are automatically skipped once a True condition has been found, 
-so if you swap around some of the clauses in vampire.py, you run into a problem. 
-
-Change the code to look like the following, and save it as vampire2.py:
-
-Say the age variable contains the value 3000 before this code is executed. 
-You might expect the code to print the string 'Unlike you, Alice is not an undead, immortal vampire.'. 
-However, because the age > 100 condition is True (after all, 3000 is greater than 100) 
-❶, the string 'You are not Alice, grannie.' is printed, and the rest of the elif statements are automatically skipped. 
-Remember, at most only one of the clauses will be executed, and for elif statements, the order matters!
+https://automatetheboringstuff.com/images/000088.png
+Figure 2-6. The flowchart for multiple elif statements in the vampire.py program
 
 
-Figure 2-7 shows the flowchart for the previous code. 
-Notice how the diamonds for age > 100 and age > 2000 are swapped.
+
+The order of the elif statements does matter, however. Let’s rearrange them to 
+introduce a bug. Remember that the rest of the elif clauses are automatically 
+skipped once a True condition has been found, so if you swap around some of the 
+clauses in vampire.py, you run into a problem. Change the code to look like the 
+following, and save it as vampire2.py:
+
+view vampire2.py for the bug that has been introduced when moving the elif statements around
+
+Say the age variable contains the value 3000 before this code is executed. You 
+might expect the code to print the string 'Unlike you, Alice is not an undead, 
+immortal vampire.'. However, because the age > 100 condition is True (after all, 
+3000 is greater than 100) ❶, the string 'You are not Alice, grannie.' is printed, 
+and the rest of the elif statements are automatically skipped. Remember, at most 
+only one of the clauses will be executed, and for elif statements, the order matters!
+
+
+Figure 2-7 shows the flowchart for the previous code. Notice how the diamonds for 
+age > 100 and age > 2000 are swapped.
+
 https://automatetheboringstuff.com/images/000089.png
 
-Optionally, you can have an else statement after the last elif statement. 
-In that case, it is guaranteed that at least one (and only one) of the clauses will be executed. 
-If the conditions in every if and elif statement are False, then the else clause is executed. 
-For example, let’s re-create the Alice program to use if, elif, and else clauses.
+Optionally, you can have an else statement after the last elif statement. In that 
+case, it is guaranteed that at least one (and only one) of the clauses will be 
+executed. If the conditions in every if and elif statement are False, then the else 
+clause is executed. For example, let’s re-create the Alice program to use if, elif, 
+and else clauses.
 
 Figure 2-8 shows the flowchart for this new code, which we’ll save as littleKid.py.
 https://automatetheboringstuff.com/images/000089.png
 
 
-In plain English, this type of flow control structure would be, “If the first condition is true, do this. 
-Else, if the second condition is true, do that. 
-Otherwise, do something else.” 
-When you use all three of these statements together, remember these rules about how to order them to avoid bugs like the one in Figure 2-7. 
-First, there is always exactly one if statement. 
-Any elif statements you need should follow the if statement. 
-Second, if you want to be sure that at least one clause is executed, close the structure with an else statement.
+In plain English, this type of flow control structure would be, “If the first condition 
+is true, do this. Else, if the second condition is true, do that. Otherwise, do 
+something else.” When you use all three of these statements together, remember 
+these rules about how to order them to avoid bugs like the one in Figure 2-7. First, 
+there is always exactly one if statement. Any elif statements you need should 
+follow the if statement. Second, if you want to be sure that at least one clause is 
+executed, close the structure with an else statement.
 
-Figure 2-7. The flowchart for the vampire2.py program. - https://automatetheboringstuff.com/images/000090.png 
-The crossed-out path will logically never happen, because if age were greater than 2000, it would have already been greater than 100.
+Figure 2-7. The flowchart for the vampire2.py program. 
+https://automatetheboringstuff.com/images/000090.png 
+
+The crossed-out path will logically never happen, because if age were greater than 2000, 
+it would have already been greater than 100.
+
+
 
 
 """
