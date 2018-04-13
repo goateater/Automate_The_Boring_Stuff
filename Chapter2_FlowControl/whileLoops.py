@@ -251,16 +251,18 @@ if numOfGuests: #(2)
     print('Be sure to have enough room for all your guests.') #(3)
 print('Done')
 
-If the user enters a blank string for name, then the while statement’s condition will be True ❶, 
-and the program continues to ask for a name. If the value for numOfGuests is not 0 ❷, then the condition
-is considered to be True, and the program will print a reminder for the user ❸.
+If the user enters a blank string for name, then the while statement’s condition will 
+be True ❶, and the program continues to ask for a name. If the value for 
+numOfGuests is not 0 ❷, then the condition is considered to be True, and the 
+program will print a reminder for the user ❸.
 
-You could have typed not name != '' instead of not name, and numOfGuests != 0 instead of numOfGuests, 
-but using the truthy and falsey values can make your code easier to read.
+You could have typed not name != '' instead of not name, and numOfGuests != 0 
+instead of numOfGuests, but using the truthy and falsey values can make your code 
+easier to read.
 
 
-Run this program and give it some input. 
-Until you claim to be Joe, it shouldn’t ask for a password, and once you enter the correct password, it should exit.
+Run this program and give it some input. Until you claim to be Joe, it shouldn’t 
+ask for a password, and once you enter the correct password, it should exit.
 
 Who are you?
 I'm fine, thanks. Who are you?
@@ -275,13 +277,14 @@ swordfish
 Access granted.
 
 
-for Loops and the range() Function
-===================================
-The while loop keeps looping while its condition is True (which is the reason for its name), 
-but what if you want to execute a block of code only a certain number of times? 
-You can do this with a for loop statement and the range() function.
+for Loops and the range() Function (for Loops and range())
+==========================================================
+The while loop keeps looping while its condition is True (which is the reason for its 
+name), but what if you want to execute a block of code only a certain number of 
+times? You can do this with a for loop statement and the range() function.
 
-In code, a for statement looks something like for i in range(5): and always includes the following:
+In code, a for statement looks something like for i in range(5): and always 
+includes the following:
 
 * The for keyword
 * A variable name
@@ -305,23 +308,23 @@ Jimmy Five Times (3)
 Jimmy Five Times (4)
 
 
-The code in the for loop’s clause is run five times. 
-The first time it is run, the variable i is set to 0. 
-The print() call in the clause will print Jimmy Five Times (0). 
-After Python finishes an iteration through all the code inside the for loop’s clause, 
-the execution goes back to the top of the loop, and the for statement increments i by one. 
+The code in the for loop’s clause is run five times. The first time it is run, the 
+variable i is set to 0. The print() call in the clause will print Jimmy Five Times 
+(0). After Python finishes an iteration through all the code inside the for loop’s 
+clause, the execution goes back to the top of the loop, and the for statement 
+increments i by one. This is why range(5) results in five iterations through the 
+clause, with i being set to 0, then 1, then 2, then 3, and then 4. The variable i will 
+go up to, but will not include, the integer passed to range(). 
 
-This is why range(5) results in five iterations through the clause, 
-with i being set to 0, then 1, then 2, then 3, and then 4. 
 
-The variable i will go up to, but will not include, the integer passed to range(). 
 Figure 2-14 shows a flowchart for the fiveTimes.py program.
 
-https://automatetheboringstuff.com/images/000102.png
 
 Figure 2-14. The flowchart for fiveTimes.py
+https://automatetheboringstuff.com/images/000102.png
 
-When you run this program, it should print Jimmy Five Times followed by the value of i five times before leaving the for loop.
+When you run this program, it should print Jimmy Five Times followed by the 
+value of i five times before leaving the for loop.
 
 
 My name is
@@ -334,19 +337,17 @@ Jimmy Five Times (4)
 
 Note
 ====
-You can use break and continue statements inside for loops as well. 
-The continue statement will continue to the next value of the for loop’s counter,
-as if the program execution had reached the end of the loop and returned to the start. 
-
-In fact, you can use continue and break statements only inside while and for loops. 
+You can use break and continue statements inside for loops as well. The continue 
+statement will continue to the next value of the for loop’s counter, as if the 
+program execution had reached the end of the loop and returned to the start. In 
+fact, you can use continue and break statements only inside while and for loops. 
 If you try to use these statements elsewhere, Python will give you an error.
 
-As another for loop example, consider this story about the mathematician Karl Friedrich Gauss. 
-When Gauss was a boy, a teacher wanted to give the class some busywork. 
-
-The teacher told them to add up all the numbers from 0 to 100. 
-Young Gauss came up with a clever trick to figure out the answer in a few seconds, 
-but you can write a Python program with a for loop to do this calculation for you.
+As another for loop example, consider this story about the mathematician Karl 
+Friedrich Gauss. When Gauss was a boy, a teacher wanted to give the class some 
+busywork. The teacher told them to add up all the numbers from 0 to 100. Young 
+Gauss came up with a clever trick to figure out the answer in a few seconds, but 
+you can write a Python program with a for loop to do this calculation for you.
 
 
 total = 0               #(1)
@@ -355,20 +356,22 @@ for num in range(101):  #(2)
 print(total)            #(4)
 
 
-The result should be 5,050. When the program first starts, the total variable is set to 0 ❶. 
-The for loop ❷ then executes total = total + num ❸ 100 times. 
-By the time the loop has finished all of its 100 iterations, every integer from 0 to 100 will have been added to total. 
-At this point, total is printed to the screen ❹. 
+The result should be 5,050. When the program first starts, the total variable is set 
+to 0 ❶. The for loop ❷ then executes total = total + num ❸ 100 times. By the 
+time the loop has finished all of its 100 iterations, every integer from 0 to 100 
+will have been added to total. At this point, total is printed to the screen ❹. 
 Even on the slowest computers, this program takes less than a second to complete.
 
-(Young Gauss figured out that there were 50 pairs of numbers that added up to 101: 
-1 + 100, 2 + 99, 3 + 98, 4 + 97, and so on, until 50 + 51. Since 50 × 101 is 5,050, the sum of all the numbers from 0 to 100 is 5,050. Clever kid!)
+(Young Gauss figured out that there were 50 pairs of numbers that added up to 
+101: 1 + 100, 2 + 99, 3 + 98, 4 + 97, and so on, until 50 + 51. Since 50 × 101 
+is 5,050, the sum of all the numbers from 0 to 100 is 5,050. Clever kid!)
 
 
 An Equivalent while Loop
 ========================
-You can actually use a while loop to do the same thing as a for loop; for loops are just more concise. 
-Let’s rewrite fiveTimes.py to use a while loop equivalent of a for loop.
+You can actually use a while loop to do the same thing as a for loop; for loops are
+just more concise. Let’s rewrite fiveTimes.py to use a while loop equivalent of a 
+for loop.
 
 print('My name is')
 i = 0
@@ -376,7 +379,8 @@ while i < 5:
     print('Jimmy Five Times (' + str(i) + ')')
     i = i + 1
 
-If you run this program, the output should look the same as the fiveTimes.py program, which uses a for loop.
+If you run this program, the output should look the same as the fiveTimes.py 
+program, which uses a for loop.
 
 My name is
 Jimmy Five Times (0)
@@ -387,23 +391,27 @@ Jimmy Five Times (4)
 
 The Starting, Stopping, and Stepping Arguments to range()
 ==========================================================
-Some functions can be called with multiple arguments separated by a comma, and range() is one of them. 
-This lets you change the integer passed to range() to follow any sequence of integers, including starting at a number other than zero.
+Some functions can be called with multiple arguments separated by a comma, and 
+range() is one of them. This lets you change the integer passed to range() to follow 
+any sequence of integers, including starting at a number other than zero.
 
 
 for i in range(12, 16):
     print(i)
     
-The first argument will be where the for loop’s variable starts, and the second argument will be up to, but not including, the number to stop at.
+The first argument will be where the for loop’s variable starts, and the second 
+argument will be up to, but not including, the number to stop at.
 
 
 12
 13
 14
 15
-The range() function can also be called with three arguments. 
-The first two arguments will be the start and stop values, and the third will be the step argument. 
-The step is the amount that the variable is increased by after each iteration.
+
+The range() function can also be called with three arguments. The first two 
+arguments will be the start and stop values, and the third will be the step 
+argument. The step is the amount that the variable is increased by after each 
+iteration.
 
 for i in range(0, 10, 2):
     print(i)
@@ -418,14 +426,15 @@ So calling range(0, 10, 2) will count from zero to eight by intervals of two.
 6
 8
 
-The range() function is flexible in the sequence of numbers it produces for for loops. 
-For example (I never apologize for my puns), you can even use a negative number for the 
-step argument to make the for loop count down instead of up.
+The range() function is flexible in the sequence of numbers it produces for for 
+loops. For example (I never apologize for my puns), you can even use a negative 
+number for the step argument to make the for loop count down instead of up.
 
 for i in range(5, -1, -1):
     print(i)
 
-Running a for loop to print i with range(5, -1, -1) should print from five down to zero.
+Running a for loop to print i with range(5, -1, -1) should print from five down 
+to zero.
 
 
 5
@@ -437,21 +446,23 @@ Running a for loop to print i with range(5, -1, -1) should print from five down 
 
 Importing Modules
 =================
-All Python programs can call a basic set of functions called built-in functions, including the print(), input(), 
-and len() functions you’ve seen before. Python also comes with a set of modules called the standard library. 
+All Python programs can call a basic set of functions called built-in functions, 
+including the print(), input(), and len() functions you’ve seen before. Python 
+also comes with a set of modules called the standard library. Each module is a 
+Python program that contains a related group of functions that can be embedded 
+in your programs. For example, the math module has mathematics-related 
+functions, the random module has random number–related functions, and so on.
 
-Each module is a Python program that contains a related group of functions that can be embedded in your programs. 
-For example, the math module has mathematics-related functions, the random module has random number–related functions, and so on.
-
-Before you can use the functions in a module, you must import the module with an import statement. 
-In code, an import statement consists of the following:
+Before you can use the functions in a module, you must import the module with an 
+import statement. In code, an import statement consists of the following:
 
 * The import keyword
 * The name of the module
 * Optionally, more module names, as long as they are separated by commas
 
-Once you import a module, you can use all the cool functions of that module. 
-Let’s give it a try with the random module, which will give us access to the random.randint() function.
+Once you import a module, you can use all the cool functions of that module. Let’s 
+give it a try with the random module, which will give us access to the 
+random.randint() function.
 
 Enter this code into the file editor, and save it as printRandom.py:
 
@@ -469,33 +480,39 @@ When you run this program, the output will look something like this:
 4
 1
 
-The random.randint() function call evaluates to a random integer value between the two integers that you pass it. 
-Since randint() is in the random module, you must first type random. in front of the function name to tell Python 
-to look for this function inside the random module.
+The random.randint() function call evaluates to a random integer value between 
+the two integers that you pass it. Since randint() is in the random module, you 
+must first type random. in front of the function name to tell Python to look for this 
+function inside the random module.
 
 Here’s an example of an import statement that imports four different modules:
 
-
 import random, sys, os, math
-Now we can use any of the functions in these four modules. We’ll learn more about them later in the book.
+
+Now we can use any of the functions in these four modules. We’ll learn more about 
+them later in the book.
 
 from import Statements
 =======================
 
-An alternative form of the import statement is composed of the from keyword, followed 
-by the module name, the import keyword, and a star; for example, from random import *.
+An alternative form of the import statement is composed of the from keyword, 
+followed by the module name, the import keyword, and a star; for example, 
+from random import *.
 
-With this form of import statement, calls to functions in random will not need the random. prefix. 
-However, using the full name makes for more readable code, so it is better to use the normal form of the import statement.
+With this form of import statement, calls to functions in random will not need the 
+random. prefix. However, using the full name makes for more readable code, so it 
+is better to use the normal form of the import statement.
 
 Ending a Program Early with sys.exit()
 ======================================
-The last flow control concept to cover is how to terminate the program. 
-This always happens if the program execution reaches the bottom of the instructions. 
-However, you can cause the program to terminate, or exit, by calling the sys.exit() function. 
-Since this function is in the sys module, you have to import sys before your program can use it.
+The last flow control concept to cover is how to terminate the program. This 
+always happens if the program execution reaches the bottom of the instructions. 
+However, you can cause the program to terminate, or exit, by calling the 
+sys.exit() function. Since this function is in the sys module, you have to import 
+sys before your program can use it.
 
-Open a new file editor window and enter the following code, saving it as exitExample.py:
+Open a new file editor window and enter the following code, saving it as 
+exitExample.py:
 
 
 import sys
@@ -507,21 +524,24 @@ while True:
         sys.exit()
     print('You typed ' + response + '.')
     
-Run this program in IDLE. 
-This program has an infinite loop with no break statement inside. 
-The only way this program will end is if the user enters exit, causing sys.exit() to be called. 
-When response is equal to exit, the program ends. 
-Since the response variable is set by the input() function, the user must enter exit in order to stop the program.
+Run this program in IDLE. This program has an infinite loop with no break 
+statement inside. The only way this program will end is if the user enters exit, 
+causing sys.exit() to be called. When response is equal to exit, the program 
+ends. Since the response variable is set by the input() function, the user must 
+enter exit in order to stop the program.
 
 
 Summary
 =======
-By using expressions that evaluate to True or False (also called conditions), you can write programs that make decisions 
-on what code to execute and what code to skip. You can also execute code over and over again in a loop while a certain 
-condition evaluates to True. The break and continue statements are useful if you need to exit a loop or jump back to the start.
+By using expressions that evaluate to True or False (also called conditions), you 
+can write programs that make decisions on what code to execute and what code to 
+skip. You can also execute code over and over again in a loop while a certain 
+condition evaluates to True. The break and continue statements are useful if you 
+need to exit a loop or jump back to the start.
 
 These flow control statements will let you write much more intelligent programs. 
-There’s another type of flow control that you can achieve by writing your own functions, which is the topic of the next chapter.
+There’s another type of flow control that you can achieve by writing your own 
+functions, which is the topic of the next chapter.
 
 
 
