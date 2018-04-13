@@ -1,62 +1,89 @@
-intro = """
+while_intro = """
+
+while Loop Statements (while Loops, break, and continue)
+========================================================
+
 You can make a block of code execute over and over again with a while statement.
-The code in a while clause will be executed as long as the while statement’s condition is True.
-In code, a while statement always consists of the following:
+The code in a while clause will be executed as long as the while statement’s 
+condition is True. In code, a while statement always consists of the following:
 
-    The while keyword
+* The while keyword
+* A condition (that is, an expression that evaluates to True or False)
+* A colon
+* Starting on the next line, an indented block of code (called the while clause)
 
-    A condition (that is, an expression that evaluates to True or False)
+You can see that a while statement looks similar to an if statement. The difference 
+is in how they behave. At the end of an if clause, the program execution continues 
+after the if statement. But at the end of a while clause, the program execution 
+jumps back to the start of the while statement. The while clause is often called the 
+while loop or just the loop.
 
-    A colon
+Let’s look at an if statement and a while loop that use the same condition and take 
+the same actions based on that condition. Here is the code with an if statement:
 
-    Starting on the next line, an indented block of code (called the while clause)
 
-You can see that a while statement looks similar to an if statement.
-The difference is in how they behave. At the end of an if clause, the program execution continues after the if statement.
-But at the end of a while clause, the program execution jumps back to the start of the while statement.
-The while clause is often called the while loop or just the loop.
-
-Let’s look at an if statement and a while loop that use the same condition and take the same actions based on that condition. 
 Here is the code with an if statement:
-
+========================================
 spam = 0
 if spam < 5:
     print('Hello, world.')
     spam = spam + 1
-    
+
+
+Hello, world.
+
+
 
 Here is the code with a while statement:
-
+========================================
 spam = 0
 while spam < 5:
     print('Hello, world.')
     spam = spam + 1
     
+    
+Hello, world.
+Hello, world.
+Hello, world.
+Hello, world.
+Hello, world.
+    
 
-These statements are similar—both if and while check the value of spam, and if it’s less than five, they print a message. 
-But when you run these two code snippets, something very different happens for each one. 
-For the if statement, the output is simply "Hello, world.". 
-But for the while statement, it’s "Hello, world." repeated five times! 
-Take a look at the flowcharts for these two pieces of code, Figure 2-9 and Figure 2-10, to see why this happens.
+These statements are similar—both if and while check the value of spam, and if it’s 
+less than five, they print a message. But when you run these two code snippets, 
+something very different happens for each one. For the if statement, the output is 
+simply "Hello, world.". But for the while statement, it’s "Hello, world." 
+repeated five times! Take a look at the flowcharts for these two pieces of code, 
+Figure 2-9 and Figure 2-10, to see why this happens.
 
-2-9) https://automatetheboringstuff.com/images/000091.png
-2-10) https://automatetheboringstuff.com/images/000094.png
+
+https://automatetheboringstuff.com/images/000091.png
+Figure 2-9. The flowchart for the if statement code
+
+
+
+https://automatetheboringstuff.com/images/000094.png
+Figure 2-10. The flowchart for the while statement code
+
+
 
 The code with the if statement checks the condition, and it prints Hello, world. 
-only once if that condition is true. 
-The code with the while loop, on the other hand, will print it five times. 
-It stops after five prints because the integer in spam is incremented by one at the end of each loop iteration, 
-which means that the loop will execute five times before spam < 5 is False.
+only once if that condition is true. The code with the while loop, on the other hand, 
+will print it five times. It stops after five prints because the integer in spam is 
+incremented by one at the end of each loop iteration, which means that the loop 
+will execute five times before spam < 5 is False.
 
-In the while loop, the condition is always checked at the start of each iteration (that is, each time the loop is executed). 
-If the condition is True, then the clause is executed, and afterward, the condition is checked again. 
-The first time the condition is found to be False, the while clause is skipped.
+In the while loop, the condition is always checked at the start of each iteration 
+(that is, each time the loop is executed). If the condition is True, then the clause is 
+executed, and afterward, the condition is checked again. The first time the 
+condition is found to be False, the while clause is skipped.
 
 
 An Annoying while Loop
 ======================
-Here’s a small example program that will keep asking you to type, literally, your name. 
-Select File▸New File to open a new file editor window, enter the following code, and save the file as yourName.py:
+Here’s a small example program that will keep asking you to type, literally, your 
+name. Select File▸New File to open a new file editor window, enter the following 
+code, and save the file as yourName.py:
 
 name = ''                           # (1)
 while name != 'your name':          # (2)
@@ -64,20 +91,29 @@ while name != 'your name':          # (2)
     name = input()                  # (3)
 print('Thank you!')       
 
-First, the program sets the name variable ❶ to an empty string. 
-This is so that the name != 'your name' condition will evaluate to True and the program execution will enter the while loop’s clause ❷.
-The code inside this clause asks the user to type their name, which is assigned to the name variable ❸. 
-Since this is the last line of the block, the execution moves back to the start of the while loop and reevaluates the condition. 
-If the value in name is not equal to the string 'your name', then the condition is True, and the execution enters the while clause again.
 
-But once the user types your name, the condition of the while loop will be 'your name' != 'your name', which evaluates to False. 
-The condition is now False, and instead of the program execution reentering the while loop’s clause, it skips past it and continues 
-running the rest of the program ❹. Figure 2-11 shows a flowchart for the yourName.py program.
+First, the program sets the name variable ❶ to an empty string. This is so that the 
+name != 'your name' condition will evaluate to True and the program execution 
+will enter the while loop’s clause ❷.
 
-Figure 2-11. A flowchart of the yourName.py program --  https://automatetheboringstuff.com/images/000097.png
 
-Now, let’s see yourName.py in action. Press F5 to run it, and enter something other than your name 
-a few times before you give the program what it wants.
+The code inside this clause asks the user to type their name, which is assigned to 
+the name variable ❸. Since this is the last line of the block, the execution moves 
+back to the start of the while loop and reevaluates the condition. If the value in 
+name is not equal to the string 'your name', then the condition is True, and the 
+execution enters the while clause again.
+
+But once the user types your name, the condition of the while loop will be 'your 
+name' != 'your name', which evaluates to False. The condition is now False, and 
+instead of the program execution reentering the while loop’s clause, it skips past it 
+and continues running the rest of the program ❹. Figure 2-11 shows a flowchart 
+for the yourName.py program.
+
+https://automatetheboringstuff.com/images/000097.png
+Figure 2-11. A flowchart of the yourName.py program --  
+
+Now, let’s see yourName.py in action. Press F5 to run it, and enter something 
+other than your name a few times before you give the program what it wants.
 
 
 Please type your name.
@@ -91,20 +127,21 @@ your name
 Thank you!
 
 
-If you never enter your name, then the while loop’s condition will never be False, and the program will just keep asking forever. 
-Here, the input() call lets the user enter the right string to make the program move on. 
-In other programs, the condition might never actually change, and that can be a problem. 
-Let’s look at how you can break out of a while loop.
+If you never enter your name, then the while loop’s condition will never be False, 
+and the program will just keep asking forever. Here, the input() call lets the user 
+enter the right string to make the program move on. In other programs, the 
+condition might never actually change, and that can be a problem. Let’s look at 
+how you can break out of a while loop.
 
-break Statements
+BREAK Statements
 ================
-There is a shortcut to getting the program execution to break out of a while loop’s clause early. 
-If the execution reaches a break statement, it immediately exits the while loop’s clause. 
-In code, a break statement simply contains the break keyword.
+There is a shortcut to getting the program execution to break out of a while loop’s 
+clause early. If the execution reaches a break statement, it immediately exits the 
+while loop’s clause. In code, a break statement simply contains the break keyword.
 
-Pretty simple, right? 
-Here’s a program that does the same thing as the previous program, but it uses a break statement to escape the loop. 
-Enter the following code, and save the file as yourName2.py:
+Pretty simple, right? Here’s a program that does the same thing as the previous 
+program, but it uses a break statement to escape the loop. Enter the following 
+code, and save the file as yourName2.py:
 
 while True:                         # (1)
     print('Please type your name.')
@@ -114,58 +151,60 @@ while True:                         # (1)
 print('Thank you!')     
 
 
-The first line ❶ creates an infinite loop; it is a while loop whose condition is always True. 
-(The expression True, after all, always evaluates down to the value True.) 
-The program execution will always enter the loop and will exit it only when a break statement is executed. 
-(An infinite loop that never exits is a common programming bug.)
+The first line ❶ creates an infinite loop; it is a while loop whose condition is 
+always True. (The expression True, after all, always evaluates down to the value 
+True.) The program execution will always enter the loop and will exit it only when 
+a break statement is executed. (An infinite loop that never exits is a common 
+programming bug.)
 
 
-Just like before, this program asks the user to type your name ❷. 
-Now, however, while the execution is still inside the while loop, 
-an if statement gets executed ❸ to check whether name is equal to your name. 
+Just like before, this program asks the user to type your name ❷. Now, however, 
+while the execution is still inside the while loop, an if statement gets executed ❸ 
+to check whether name is equal to your name. If this condition is True, the break 
+statement is run ❹, and the execution moves out of the loop to print('Thank 
+you!') ❺. Otherwise, the if statement’s clause with the break statement is 
+skipped, which puts the execution at the end of the while loop. At this point, the 
+program execution jumps back to the start of the while statement ❶ to recheck the 
+condition. Since this condition is merely the True Boolean value, the execution 
+enters the loop to ask the user to type your name again. See Figure 2-12 for the 
+flowchart of this program.
 
-If this condition is True, the break statement is run ❹, and the execution moves out of the loop to print('Thank you!') ❺. 
-Otherwise, the if statement’s clause with the break statement is skipped, which puts the execution at the end of the while loop. 
-At this point, the program execution jumps back to the start of the while statement ❶ to recheck the condition. 
-Since this condition is merely the True Boolean value, the execution enters the loop to ask the user to type your name again. 
-See Figure 2-12 for the flowchart of this program.
-
-Run yourName2.py, and enter the same text you entered for yourName.py. 
-The rewritten program should respond in the same way as the original.
+Run yourName2.py, and enter the same text you entered for yourName.py. The 
+rewritten program should respond in the same way as the original.
 
 Figure 2-12. The flowchart for the yourName2.py program with an infinite loop. 
 Note that the X path will logically never happen because the loop condition is always True.
 https://automatetheboringstuff.com/images/000099.jpg
 
-
 continue Statements
 ===================
-Like break statements, continue statements are used inside loops. 
-When the program execution reaches a continue statement, the program execution immediately jumps back 
-to the start of the loop and reevaluates the loop’s condition. 
-(This is also what happens when the execution reaches the end of the loop.)
+Like break statements, continue statements are used inside loops. When the 
+program execution reaches a continue statement, the program execution 
+immediately jumps back to the start of the loop and reevaluates the loop’s 
+condition. (This is also what happens when the execution reaches the end of the 
+loop.)
 
 Trapped in an Infinite Loop?
 
-If you ever run a program that has a bug causing it to get stuck in an infinite loop, press CTRL-C. 
-This will send a KeyboardInterrupt error to your program and cause it to stop immediately. 
-To try it, create a simple infinite loop in the file editor, and save it as infiniteloop.py.
+If you ever run a program that has a bug causing it to get stuck in an infinite loop, 
+press CTRL-C. This will send a KeyboardInterrupt error to your program and 
+cause it to stop immediately. To try it, create a simple infinite loop in the file 
+editor, and save it as infiniteloop.py.
 
 
 while True:
     print('Hello world!')
     
     
-When you run this program, it will print Hello world! to the screen forever, because the while statement’s condition is always True. 
-In IDLE’s interactive shell window, there are only two ways to stop this program: 
-press CTRL-C 
-or 
-select Shell ▸ restart Shell from the menu. 
+When you run this program, it will print Hello world! to the screen forever, 
+because the while statement’s condition is always True. In IDLE’s interactive shell 
+window, there are only two ways to stop this program: press CTRL-C or select Shell 
+▸ restart Shell from the menu. CTRL-C is handy if you ever want to terminate 
+your program immediately, even if it’s not stuck in an infinite loop.
 
-CTRL-C is handy if you ever want to terminate your program immediately, even if it’s not stuck in an infinite loop.
-
-Let’s use continue to write a program that asks for a name and password. 
-Enter the following code into a new file editor window and save the program as swordfish.py.
+Let’s use continue to write a program that asks for a name and password. Enter 
+the following code into a new file editor window and save the program as 
+swordfish.py.
 
 
 while True:
@@ -180,26 +219,27 @@ while True:
 print('Access granted.')  #(5)
 
 
-If the user enters any name besides Joe ❶, the continue statement ❷ causes the program execution to jump back to the start of the loop. 
-When it reevaluates the condition, the execution will always enter the loop, since the condition is simply the value True. 
-Once they make it past that if statement, the user is asked for a password ❸. 
-If the password entered is swordfish, then the break statement ❹ is run, 
-and the execution jumps out of the while loop to print Access granted ❺. 
+If the user enters any name besides Joe ❶, the continue statement ❷ causes the 
+program execution to jump back to the start of the loop. When it reevaluates the 
+condition, the execution will always enter the loop, since the condition is simply 
+the value True. Once they make it past that if statement, the user is asked for a 
+password ❸. If the password entered is swordfish, then the break statement ❹ is 
+run, and the execution jumps out of the while loop to print Access granted ❺. 
 
-Otherwise, the execution continues to the end of the while loop, where it then jumps back to the start of the loop. 
-See Figure 2-13 for this program’s flowchart.
+Otherwise, the execution continues to the end of the while loop, where it then 
+jumps back to the start of the loop. See Figure 2-13 for this program’s flowchart.
 
 https://automatetheboringstuff.com/images/000100.jpg
-
-Figure 2-13. A flowchart for swordfish.py. 
-The X path will logically never happen because the loop condition is always True.
+Figure 2-13. A flowchart for swordfish.py. The X path will logically never happen 
+because the loop condition is always True.
 
 
 “Truthy” and “Falsey” Values
 ============================
-There are some values in other data types that conditions will consider equivalent to True and False. 
-When used in conditions, 0, 0.0, and '' (the empty string) are considered False, while all other values are considered True. 
-For example, look at the following program:
+There are some values in other data types that conditions will consider equivalent 
+to True and False. When used in conditions, 0, 0.0, and '' (the empty string) are 
+considered False, while all other values are considered True. For example, look at 
+the following program:
 
 name = ''
 while not name: #(1)
@@ -490,7 +530,7 @@ There’s another type of flow control that you can achieve by writing your own 
 
 print('Difference between If statements and While Loops')
 print('------------------------------------------------')
-print(intro)
+print(while_intro)
 
 print('\n')
 print('Sample of an If statement result')
