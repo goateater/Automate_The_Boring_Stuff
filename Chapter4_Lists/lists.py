@@ -1,81 +1,129 @@
-listStuff = """
+listsExplained = """
+
+Lists (Lists, Indexes, Slices, and the list() Function)
+=======================================================
+One more topic you’ll need to understand before you can begin writing programs 
+in earnest is the list data type and its cousin, the tuple. Lists and tuples can contain 
+multiple values, which makes it easier to write programs that handle large 
+amounts of data. And since lists themselves can contain other lists, you can use 
+them to arrange data into hierarchical structures.
+
+In this chapter, I’ll discuss the basics of lists. I’ll also teach you about methods, 
+which are functions that are tied to values of a certain data type. Then I’ll briefly 
+cover the list-like tuple and string data types and how they compare to list values. 
+In the next chapter, I’ll introduce you to the dictionary data type.
+
+
+
 The List Data Type
 ==================
-A list is a value that contains multiple values in an ordered sequence.
-The term list value refers to the list itself (which is a value that can be stored in a variable or passed to a function
-like any other value), not the values inside the list value. A list value looks like this: ['cat', 'bat', 'rat', 'elephant'].
-Just as string values are typed with quote characters to mark where the string begins and ends, a list begins with an opening
-square bracket and ends with a closing square bracket, []. Values inside the list are also called items.
+A list is a value that contains multiple values in an ordered sequence. The term list 
+value refers to the list itself (which is a value that can be stored in a variable or 
+passed to a function like any other value), not the values inside the list value. A list 
+value looks like this: ['cat', 'bat', 'rat', 'elephant']. Just as string values are 
+typed with quote characters to mark where the string begins and ends, a list begins 
+with an opening square bracket and ends with a closing square bracket, []. Values 
+inside the list are also called items. Items are separated with commas (that is, they 
+are comma-delimited). For example, enter the following into the interactive shell:
 
-Items are separated with commas (that is, they are comma-delimited).
-For example, enter the following into the interactive shell:
 
+>>> [1, 2, 3]
+[1, 2, 3]
+>>> ['cat', 'bat', 'rat', 'elephant']
+['cat', 'bat', 'rat', 'elephant']
+>>> ['hello', 3.1415, True, None, 42]
+['hello', 3.1415, True, None, 42]
+❶ >>> spam = ['cat', 'bat', 'rat', 'elephant']
+>>> spam
+['cat', 'bat', 'rat', 'elephant']
 
-   >>> [1, 2, 3]
-   [1, 2, 3]
-   >>> ['cat', 'bat', 'rat', 'elephant']
-   ['cat', 'bat', 'rat', 'elephant']
-   >>> ['hello', 3.1415, True, None, 42]
-   ['hello', 3.1415, True, None, 42]
-   >>> spam = ['cat', 'bat', 'rat', 'elephant']
-   >>> spam
-   ['cat', 'bat', 'rat', 'elephant']
-
-The spam variable is still assigned only one value: the list value. But the list value itself contains other values.
-The value [] is an empty list that contains no values, similar to '', the empty string.
+The spam variable ❶ is still assigned only one value: the list value. But the list value 
+itself contains other values. The value [] is an empty list that contains no values, 
+similar to '', the empty string.
 
 
 Getting Individual Values in a List with Indexes
 =================================================
-Say you have the list ['cat', 'bat', 'rat', 'elephant'] stored in a variable named spam.
-The Python code spam[0] would evaluate to 'cat', and spam[1] would evaluate to 'bat', and so on.
-The integer inside the square brackets that follows the list is called an index.
-The first value in the list is at index 0, the second value is at index 1, the third value is at index 2, and so on.
+Say you have the list ['cat', 'bat', 'rat', 'elephant'] stored in a variable 
+named spam. The Python code spam[0] would evaluate to 'cat', and spam[1] would 
+evaluate to 'bat', and so on. The integer inside the square brackets that follows 
+the list is called an index. The first value in the list is at index 0, the second value is 
+at index 1, the third value is at index 2, and so on. Figure 4-1 shows a list value 
+assigned to spam, along with what the index expressions would evaluate to.
 
-For example, type the following expressions into the interactive shell. Start by assigning a list to the variable spam.
+Figure 4-1. A list value stored in the variable spam, showing which value each index refers to
+https://automatetheboringstuff.com/images/000074.png
 
+For example, type the following expressions into the interactive shell. Start by 
+assigning a list to the variable spam.
+
+
+   >>> spam = ['cat', 'bat', 'rat', 'elephant']
+   >>> spam[0]
+   'cat'
+   >>> spam[1]
+   'bat'
+   >>> spam[2]
+   'rat'
+   >>> spam[3]
+   'elephant'
+   >>> ['cat', 'bat', 'rat', 'elephant'][3]
+   'elephant'
+❶ >>> 'Hello ' + spam[0]
+❷ 'Hello cat'
+   >>> 'The ' + spam[1] + ' ate the ' + spam[0] + '.'
+   'The bat ate the cat.'
+   
+   
+Notice that the expression 'Hello ' + spam[0] ❶ evaluates to 'Hello ' + 'cat' 
+because spam[0] evaluates to the string 'cat'. This expression in turn evaluates to 
+the string value 'Hello cat' ❷.
+
+
+Python will give you an IndexError error message if you use an index that exceeds 
+the number of values in your list value.
 
 >>> spam = ['cat', 'bat', 'rat', 'elephant']
->>> spam[0]
-'cat'
+>>> spam[10000]
+
+Traceback (most recent call last):
+  File "<pyshell#9>", line 1, in <module>
+    spam[10000]
+IndexError: list index out of range
+Indexes can be only integer values, not floats. The following example will cause a 
+TypeError error:
+
+>>> spam = ['cat', 'bat', 'rat', 'elephant']
 >>> spam[1]
 'bat'
->>> spam[2]
-'rat'
->>> spam[3]
-'elephant'
->>> print ['cat', 'bat', 'rat', 'elephant'][3]
-
-
-print 'Hello ' + spam[0]
-
-
-print('Below is an example of string slicing with lists')
-spam = ['cat', 'bat', 'rat', 'elephant']
-print(spam[0])
-print('The ' + spam[1] + ' ate the ' + spam[0] + '.')
-
-
-Notice that the expression 'Hello ' + spam[0] evaluates to 'Hello ' + 'cat' because spam[0] evaluates to the string 'cat'.
-This expression in turn evaluates to the string value 'Hello cat'
-
-Python will give you an IndexError error message if you use an index that exceeds the number of values in your list value.
-
-Indexes can be only integer values, not floats.
-
-spam2 = [['cat', 'bat'], [10,20,30,40,50]]
-print(spam2[0])
-['cat', 'bat']
-print(spam2[0][1])
+>>> spam[1.0]
+Traceback (most recent call last):
+  File "<pyshell#13>", line 1, in <module>
+    spam[1.0]
+TypeError: list indices must be integers, not float
+>>> spam[int(1.0)]
 'bat'
-print(spam2[1][4])
+
+
+Lists can also contain other list values. The values in these lists of lists can be 
+accessed using multiple indexes, like so:
+
+
+>>> spam = [['cat', 'bat'], [10, 20, 30, 40, 50]]
+>>> spam[0]
+['cat', 'bat']
+>>> spam[0][1]
+'bat'
+>>> spam[1][4]
 50
 
-The first index dictates which list value to use, and the second indicates the value within the list value.
-For example, spam[0][1] prints 'bat', the second value in the first list.
-If you only use one index, the program will print the full list value at that index.
 
-Negative Indexes
+The first index dictates which list value to use, and the second indicates the value 
+within the list value. For example, spam[0][1] prints 'bat', the second value in the 
+first list. If you only use one index, the program will print the full list value at that 
+index.
+
+Negative Indexes 
 =================
 
 While indexes start at 0 and go up, you can also use negative integers for the index.
@@ -280,5 +328,5 @@ it would be with several repetitive variables.
 
 """
 
-print(listStuff)
+print(listsExplained)
 

@@ -676,4 +676,5 @@ You could have typed not name != '' instead of not name, and numOfGuests != 0 in
  and falsey values can make your code easier to read.
 """
 
+print("Take a look at the Chapter 2 Practive Questions, to see if you need to review any of the topics")
 # --------------------------- End Using the continue statement ---------------------------
