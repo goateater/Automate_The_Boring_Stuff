@@ -117,6 +117,12 @@ accessed using multiple indexes, like so:
 >>> spam[1][4]
 50
 
+spam[0][0]
+'cat'
+spam[1][0]
+10
+spam[1][0:3]
+[10, 20, 30] 
 
 The first index dictates which list value to use, and the second indicates the value 
 within the list value. For example, spam[0][1] prints 'bat', the second value in the 
@@ -127,9 +133,9 @@ Negative Indexes
 =================
 
 While indexes start at 0 and go up, you can also use negative integers for the index.
-The integer value -1 refers to the last index in a list, the value -2 refers to the second-to-last index in a list, and so on.
-Enter the following into the interactive shell:
-
+The integer value -1 refers to the last index in a list, the value -2 refers to the 
+second-to-last index in a list, and so on. Enter the following into the interactive 
+shell:
 
 >>> spam = ['cat', 'bat', 'rat', 'elephant']
 >>> spam[-1]
@@ -141,18 +147,19 @@ Enter the following into the interactive shell:
 
 Getting Sublists with Slices
 ============================
-Just as an index can get a single value from a list, a slice can get several values from a list, in the form of a new list.
-A slice is typed between square brackets, like an index, but it has two integers separated by a colon.
-Notice the difference between indexes and slices.
+Just as an index can get a single value from a list, a slice can get several values 
+from a list, in the form of a new list. A slice is typed between square brackets, like 
+an index, but it has two integers separated by a colon. Notice the difference 
+between indexes and slices.
 
 spam[2] is a list with an index (one integer).
 
 spam[1:4] is a list with a slice (two integers).
 
-In a slice, the first integer is the index where the slice starts.
-The second integer is the index where the slice ends.
-A slice goes up to, but will not include, the value at the second index.
-A slice evaluates to a new list value. Enter the following into the interactive shell:
+In a slice, the first integer is the index where the slice starts. The second integer is 
+the index where the slice ends. A slice goes up to, but will not include, the value at 
+the second index. A slice evaluates to a new list value. Enter the following into the 
+interactive shell:
 
 
 >>> spam = ['cat', 'bat', 'rat', 'elephant']
@@ -163,10 +170,11 @@ A slice evaluates to a new list value. Enter the following into the interactive 
 >>> spam[0:-1]
 ['cat', 'bat', 'rat']
 
-As a shortcut, you can leave out one or both of the indexes on either side of the colon in the slice.
-Leaving out the first index is the same as using 0, or the beginning of the list.
-Leaving out the second index is the same as using the length of the list, which will slice to the end of the list.
-Enter the following into the interactive shell:
+As a shortcut, you can leave out one or both of the indexes on either side of the 
+colon in the slice. Leaving out the first index is the same as using 0, or the 
+beginning of the list. Leaving out the second index is the same as using the length 
+of the list, which will slice to the end of the list. Enter the following into the 
+interactive shell:
 
 
 >>> spam = ['cat', 'bat', 'rat', 'elephant']
@@ -180,8 +188,9 @@ Enter the following into the interactive shell:
 
 Getting a List’s Length with len()
 =================================
-The len() function will return the number of values that are in a list value passed to it,
-just like it can count the number of characters in a string value. Enter the following into the interactive shell:
+The len() function will return the number of values that are in a list value passed 
+to it, just like it can count the number of characters in a string value. Enter the 
+following into the interactive shell:
 
 
 >>> spam = ['cat', 'dog', 'moose']
@@ -191,10 +200,11 @@ just like it can count the number of characters in a string value. Enter the fol
 
 Changing Values in a List with Indexes
 =======================================
-Normally a variable name goes on the left side of an assignment statement, like spam = 42.
-However, you can also use an index of a list to change the value at that index.
-For example, spam[1] = 'aardvark' means “Assign the value at index 1 in the list spam to the string 'aardvark'.”
-Enter the following into the interactive shell:
+Normally a variable name goes on the left side of an assignment statement, like 
+spam = 42. However, you can also use an index of a list to change the value at that 
+index. For example, spam[1] = 'aardvark' means “Assign the value at index 1 in 
+the list spam to the string 'aardvark'.” Enter the following into the interactive 
+shell:
 
 >>> spam = ['cat', 'bat', 'rat', 'elephant']
 >>> spam[1] = 'aardvark'
@@ -210,9 +220,10 @@ Enter the following into the interactive shell:
 
 List Concatenation and List Replication
 =======================================
-The + operator can combine two lists to create a new list value in the same way it combines two strings into a new string value.
-The * operator can also be used with a list and an integer value to replicate the list.
-Enter the following into the interactive shell:
+The + operator can combine two lists to create a new list value in the same way it 
+combines two strings into a new string value. The * operator can also be used with 
+a list and an integer value to replicate the list. Enter the following into the 
+interactive shell:
 
 
 >>> [1, 2, 3] + ['A', 'B', 'C']
@@ -226,9 +237,9 @@ Enter the following into the interactive shell:
 
 Removing Values from Lists with del Statements
 ===============================================
-The del statement will delete values at an index in a list.
-All of the values in the list after the deleted value will be moved up one index.
-For example, enter the following into the interactive shell:
+The del statement will delete values at an index in a list. All of the values in the list 
+after the deleted value will be moved up one index. For example, enter the 
+following into the interactive shell:
 
 
 >>> spam = ['cat', 'bat', 'rat', 'elephant']
@@ -240,16 +251,18 @@ For example, enter the following into the interactive shell:
 ['cat', 'bat']
 
 
-The del statement can also be used on a simple variable to delete it, as if it were an “unassignment” statement.
-If you try to use the variable after deleting it, you will get a NameError error because the variable no longer exists.
+The del statement can also be used on a simple variable to delete it, as if it were an 
+“unassignment” statement. If you try to use the variable after deleting it, you will 
+get a NameError error because the variable no longer exists.
 
-In practice, you almost never need to delete simple variables.
-The del statement is mostly used to delete values from lists.
+In practice, you almost never need to delete simple variables. The del statement is 
+mostly used to delete values from lists.
 
 Working with Lists
 ==================
-When you first begin writing programs, it’s tempting to create many individual variables to store a group of similar values.
-For example, if I wanted to store the names of my cats, I might be tempted to write code like this:
+When you first begin writing programs, it’s tempting to create many individual 
+variables to store a group of similar values. For example, if I wanted to store the 
+names of my cats, I might be tempted to write code like this:
 
 
 catName1 = 'Zophie'
@@ -258,11 +271,13 @@ catName3 = 'Simon'
 catName4 = 'Lady Macbeth'
 catName5 = 'Fat-tail'
 catName6 = 'Miss Cleo'
-(I don’t actually own this many cats, I swear.)
-It turns out that this is a bad way to write code.
-For one thing, if the number of cats changes, your program will never be able to store more cats than you have variables.
-These types of programs also have a lot of duplicate or nearly identical code in them.
-Consider how much duplicate code is in the following program, which you should enter into the file editor and save as allMyCats1.py:
+
+(I don’t actually own this many cats, I swear.) It turns out that this is a bad way to 
+write code. For one thing, if the number of cats changes, your program will never 
+be able to store more cats than you have variables. These types of programs also 
+have a lot of duplicate or nearly identical code in them. Consider how much 
+duplicate code is in the following program, which you should enter into the file 
+editor and save as allMyCats1.py:
 
 
 print('Enter the name of cat 1:')
@@ -281,10 +296,11 @@ print('The cat names are:')
 print(catName1 + ' ' + catName2 + ' ' + catName3 + ' ' + catName4 + ' ' +
 catName5 + ' ' + catName6)
 
-Instead of using multiple, repetitive variables, you can use a single variable that contains a list value.
-For example, here’s a new and improved version of the allMyCats1.py program.
-This new version uses a single list and can store any number of cats that the user types in.
-In a new file editor window, type the following source code and save it as allMyCats2.py:
+Instead of using multiple, repetitive variables, you can use a single variable that 
+contains a list value. For example, here’s a new and improved version of the 
+allMyCats1.py program. This new version uses a single list and can store any 
+number of cats that the user types in. In a new file editor window, type the 
+following source code and save it as allMyCats2.py:
 
 
 catNames = []
@@ -298,6 +314,8 @@ while True:
 print('The cat names are:')
 for name in catNames:
     print('  ' + name)
+    
+    
 When you run this program, the output will look something like this:
 
 
@@ -322,6 +340,7 @@ The cat names are:
   Lady Macbeth
   Fat-tail
   Miss Cleo
+  
 The benefit of using a list is that your data is now in a structure,
 so your program is much more flexible in processing the data than
 it would be with several repetitive variables.

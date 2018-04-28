@@ -1,4 +1,4 @@
-forloopsandlists = """
+forloopswithlists = """
 
 Using for Loops with Lists
 ==========================
@@ -169,7 +169,7 @@ Enter the following into the interactive shell:
 ['Zophie', 'Zophie', 'Zophie']
 """
 
-print(forloopsandlists)
+print(forloopswithlists)
 
 print('\n')
 

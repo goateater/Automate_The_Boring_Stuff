@@ -1,13 +1,14 @@
-funkytown = """
+functions_splained = """
 
 Functions
 =========
-You’re already familiar with the print(), input(), and len() functions from the previous chapters. 
-Python provides several builtin functions like these, but you can also write your own functions. 
-A function is like a mini-program within a program.
+You’re already familiar with the print(), input(), and len() functions from the 
+previous chapters. Python provides several builtin functions like these, but you 
+can also write your own functions. A function is like a mini-program within a 
+program.
 
-To better understand how functions work, let’s create one. 
-Type this program into the file editor and save it as helloFunc.py:
+To better understand how functions work, let’s create one. Type this program into 
+the file editor and save it as helloFunc.py:
 
 ❶ def hello():
 ❷     print('Howdy!')
@@ -18,20 +19,19 @@ Type this program into the file editor and save it as helloFunc.py:
    hello()
    
 
-The first line is a def statement ❶, which defines a function named hello(). 
-The code in the block that follows the def statement ❷ is the body of the function. 
-This code is executed when the function is called, not when the function is first defined.
+The first line is a def statement ❶, which defines a function named hello(). The 
+code in the block that follows the def statement ❷ is the body of the function . This 
+code is executed when the function is called, not when the function is first defined.
 
-The hello() lines after the function ❸ are function calls. 
-In code, a function call is just the function’s name followed by parentheses, possibly with some 
-number of arguments in between the parentheses. 
+The hello() lines after the function ❸ are function calls. In code, a function call is 
+just the function’s name followed by parentheses, possibly with some number of 
+arguments in between the parentheses. When the program execution reaches 
+these calls, it will jump to the top line in the function and begin executing the 
+code there. When it reaches the end of the function, the execution returns to the 
+line that called the function and continues moving through the code as before.
 
-When the program execution reaches these calls, it will jump to the top line in the function and begin 
-executing the code there. When it reaches the end of the function, the execution returns to the line that 
-called the function and continues moving through the code as before.
-
-Since this program calls hello() three times, the code in the hello() function is executed three times. 
-When you run this program, the output looks like this:
+Since this program calls hello() three times, the code in the hello() function is 
+executed three times. When you run this program, the output looks like this:
 
 
 Howdy!
@@ -45,7 +45,8 @@ Howdy!!!
 Hello there.
 
 A major purpose of functions is to group code that gets executed multiple times. 
-Without a function defined, you would have to copy and paste this code each time, and the program would look like this:
+Without a function defined, you would have to copy and paste this code each time, 
+and the program would look like this:
 
 
 print('Howdy!')
@@ -58,28 +59,28 @@ print('Howdy!')
 print('Howdy!!!')
 print('Hello there.')
    
-In general, you always want to avoid duplicating code, because if you ever decide to update the code—
-if, for example, you find a bug you need to fix—you’ll have to remember to change the code everywhere you copied it.
+In general, you always want to avoid duplicating code, because if you ever decide 
+to update the code—if, for example, you find a bug you need to fix—you’ll have to 
+remember to change the code everywhere you copied it.
 
-As you get more programming experience, you’ll often find yourself deduplicating code, 
-which means getting rid of duplicated or copy-and-pasted code. Deduplication makes your 
-programs shorter, easier to read, and easier to update.
+As you get more programming experience, you’ll often find yourself deduplicating 
+code, which means getting rid of duplicated or copy-and-pasted code. 
+Deduplication makes your programs shorter, easier to read, and easier to update.
 
-def Statements with Parameters
+DEF Statements with Parameters
 ===============================
-When you call the print() or len() function, you pass in values, 
-called arguments in this context, by typing them between the parentheses. 
-
-You can also define your own functions that accept arguments. 
-Type this example into the file editor and save it as helloFunc2.py:
+When you call the print() or len() function, you pass in values, called arguments 
+in this context, by typing them between the parentheses. You can also define your 
+own functions that accept arguments. Type this example into the file editor and 
+save it as helloFunc2.py:
 
 ❶ def hello(name):
 ❷     print('Hello ' + name)
 
 ❸ hello('Alice')
   hello('Bob')
+  
 When you run this program, the output looks like this:
-
 
 Hello Alice
 Hello Bob
@@ -97,10 +98,11 @@ NameError because there is no variable named name. This variable was destroyed
 after the function call hello('Bob') had returned, so print(name) would refer to a 
 name variable that does not exist.
 
-This is similar to how a program’s variables are forgotten when the program terminates. 
-I’ll talk more about why that happens later in the chapter, when I discuss what a function’s local scope is.
+This is similar to how a program’s variables are forgotten when the program 
+terminates. I’ll talk more about why that happens later in the chapter, when I 
+discuss what a function’s local scope is.
 
-Return Values and return Statements
+Return Values and Return Statements
 ===================================
 When you call the len() function and pass it an argument such as 'Hello', the 
 function call evaluates to the integer value 5, which is the length of the string you 
@@ -108,7 +110,8 @@ passed it. In general, the value that a function call evaluates to is called the
 value of the function.
 
 When creating a function using the def statement, you can specify what the return 
-value should be with a return statement. A return statement consists of the following:
+value should be with a return statement. A return statement consists of the 
+following:
 
 * The return keyword
 * The value or expression that the function should return
@@ -446,17 +449,21 @@ Because eggs is declared global at the top of spam() ❶, when eggs is set to 's
 
 There are four rules to tell whether a variable is in a local scope or global scope:
 
-1) If a variable is being used in the global scope (that is, outside of all functions), then it is always a global variable.
+1) If a variable is being used in the global scope (that is, outside of all functions), 
+then it is always a global variable.
 
-2) If there is a global statement for that variable in a function, it is a global variable.
+2) If there is a global statement for that variable in a function, it is a global 
+variable.
 
-3) Otherwise, if the variable is used in an assignment statement in the function, it is a local variable.
+3) Otherwise, if the variable is used in an assignment statement in the function, 
+it is a local variable.
 
-4) But if the variable is not used in an assignment statement, it is a global variable.
+4) But if the variable is not used in an assignment statement, it is a global 
+variable.
 
 
-To get a better feel for these rules, here’s an example program. 
-Type the following code into the file editor and save it as sameName3.py:
+To get a better feel for these rules, here’s an example program. Type the following 
+code into the file editor and save it as sameName3.py:
 
   def spam():
 ❶  global eggs
@@ -537,7 +544,8 @@ entire program will crash. You don’t want this to happen in real-world program
 Instead, you want the program to detect errors, handle them, and then continue to run.
 
 For example, consider the following program, which has a “divide-by-zero” error. 
-Open a new file editor window and enter the following code, saving it as zeroDivide.py:
+Open a new file editor window and enter the following code, saving it as 
+zeroDivide.py:
 
 def spam(divideBy):
     return 42 / divideBy
@@ -698,12 +706,14 @@ if guess < secretNumber:
     print('Your guess is too low.')
 elif guess > secretNumber:
     print('Your guess is too high.')
+    
 These few lines of code check to see whether the guess is less than or greater than 
 the secret number. In either case, a hint is printed to the screen.
 
 
 else:
     break    # This condition is the correct guess!
+
     
 If the guess is neither higher nor lower than the secret number, then it must be 
 equal to the secret number, in which case you want the program execution to 
@@ -740,6 +750,6 @@ error has been detected. This can make your programs more resilient to common er
 
 """
 
-print(funkytown)
+print(functions_splained)
 
 
