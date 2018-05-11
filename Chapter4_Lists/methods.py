@@ -11,9 +11,9 @@ The list data type, for example, has several useful methods for finding, adding,
 
 Finding a Value in a List with the index() Method
 ==================================================
-List values have an index() method that can be passed a value, and if that value exists in the list, the index of the value is returned.
-If the value isn’t in the list, then Python produces a ValueError error.
-Enter the following into the interactive shell:
+List values have an index() method that can be passed a value, and if that value 
+exists in the list, the index of the value is returned. If the value isn’t in the list, then 
+Python produces a ValueError error. Enter the following into the interactive shell:
 
 >>> spam = ['hello', 'hi', 'howdy', 'heyas']
 >>> spam.index('hello')
@@ -26,8 +26,9 @@ Traceback (most recent call last):
     spam.index('howdy howdy howdy')
 ValueError: 'howdy howdy howdy' is not in list
 
-When there are duplicates of the value in the list, the index of its first appearance is returned.
-Enter the following into the interactive shell, and notice that index() returns 1, not 3:
+When there are duplicates of the value in the list, the index of its first appearance 
+is returned. Enter the following into the interactive shell, and notice that index() 
+returns 1, not 3:
 
 >>> spam = ['Zophie', 'Pooka', 'Fat-tail', 'Pooka']
 >>> spam.index('Pooka')

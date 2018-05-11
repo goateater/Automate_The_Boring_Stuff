@@ -51,8 +51,10 @@ the list is called an index. The first value in the list is at index 0, the seco
 at index 1, the third value is at index 2, and so on. Figure 4-1 shows a list value 
 assigned to spam, along with what the index expressions would evaluate to.
 
-Figure 4-1. A list value stored in the variable spam, showing which value each index refers to
+Figure 4-1.
 https://automatetheboringstuff.com/images/000074.png
+A list value stored in the variable spam, showing which value each index
+refers to.
 
 For example, type the following expressions into the interactive shell. Start by 
 assigning a list to the variable spam.
@@ -90,6 +92,8 @@ Traceback (most recent call last):
   File "<pyshell#9>", line 1, in <module>
     spam[10000]
 IndexError: list index out of range
+
+
 Indexes can be only integer values, not floats. The following example will cause a 
 TypeError error:
 

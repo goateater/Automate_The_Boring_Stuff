@@ -1,6 +1,6 @@
 myPets = ['Zophie', 'Pooka', 'Fat-tail']
-#print('Enter a pet name:')
-name = input('Enter a pet name: ')
+print('Enter a pet name: ')
+name = input()
 if name not in myPets:
     print('I do not have a pet named ' + name)
 else:
