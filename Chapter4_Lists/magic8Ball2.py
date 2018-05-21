@@ -1,18 +1,36 @@
 magic8ballNotes = """
 Example Program: Magic 8 Ball with a List
 
-Using lists, you can write a much more elegant version of the previous chapter’s Magic 8 Ball program.
-Instead of several lines of nearly identical elif statements, you can create a single list that the code works with.
- Open a new file editor window and enter the following code.
- Save it as magic8Ball2.py.
+Using lists, you can write a much more elegant version of the previous chapter’s 
+Magic 8 Ball program. Instead of several lines of nearly identical elif statements, 
+you can create a single list that the code works with.  Open a new file editor window 
+and enter the following code.  Save it as magic8Ball2.py.
+
+#### magic8Ball2.py code start ####
+
+import random
+
+messages = ['It is certain',
+    'It is decidedly so',
+    'Yes definitely',
+    'Reply hazy try again',
+    'Ask again later',
+    'Concentrate and ask again',
+    'My reply is no',
+    'Outlook not so good',
+    'Very doubtful']
+
+print(messages[random.randint(0, len(messages) - 1)])
+
+#### magic8Ball2.py code end ####
 
 Exceptions to Indentation Rules in Python
 =========================================
-In most cases, the amount of indentation for a line of code tells Python what block it is in.
-There are some exceptions to this rule, however.
-For example, lists can actually span several lines in the source code file.
-The indentation of these lines do not matter; Python knows that until it sees the ending square bracket, the list is not finished.
-For example, you can have code that looks like this:
+In most cases, the amount of indentation for a line of code tells Python what block 
+it is in. There are some exceptions to this rule, however. For example, lists can 
+actually span several lines in the source code file. The indentation of these lines do 
+not matter; Python knows that until it sees the ending square bracket, the list is 
+not finished. For example, you can have code that looks like this:
 
 spam = ['apples',
     'oranges',
@@ -21,33 +39,39 @@ spam = ['apples',
 print(spam)
 
 
-Of course, practically speaking, most people use Python’s behavior to make their lists look pretty and readable, like the messages list in the Magic 8 Ball program.
+Of course, practically speaking, most people use Python’s behavior to make their 
+lists look pretty and readable, like the messages list in the Magic 8 Ball program.
 
-You can also split up a single instruction across multiple lines using the \ line continuation character at the end.
-Think of \ as saying, “This instruction continues on the next line.”
-The indentation on the line after a \ line continuation is not significant.
-For example, the following is valid Python code:
+You can also split up a single instruction across multiple lines using the \ line 
+continuation character at the end. Think of \ as saying, “This instruction continues 
+on the next line.” The indentation on the line after a \ line continuation is not 
+significant. For example, the following is valid Python code:
 
 print('Four score and seven ' + \
       'years ago...')
 
-These tricks are useful when you want to rearrange long lines of Python code to be a bit more readable.
+These tricks are useful when you want to rearrange long lines of Python code to be 
+a bit more readable.
 
-When you run this program, you’ll see that it works the same as the previous magic8Ball.py program.
+When you run this program, you’ll see that it works the same as the previous 
+magic8Ball.py program.
 
-Notice the expression you use as the index into messages: random.randint(0, len(messages) - 1).
-This produces a random number to use for the index, regardless of the size of messages.
-That is, you’ll get a random number between 0 and the value of len(messages) - 1.
-The benefit of this approach is that you can easily add and remove strings to the messages list without changing other lines of code.
-If you later update your code, there will be fewer lines you have to change and fewer chances for you to introduce bugs.
+Notice the expression you use as the index into messages: random.randint(0, 
+len(messages) - 1). This produces a random number to use for the index, 
+regardless of the size of messages. That is, you’ll get a random number between 0 
+and the value of len(messages) - 1. The benefit of this approach is that you can 
+easily add and remove strings to the messages list without changing other lines of 
+code. If you later update your code, there will be fewer lines you have to change 
+and fewer chances for you to introduce bugs.
 
 
 List-like Types: Strings and Tuples
 ===================================
-Lists aren’t the only data types that represent ordered sequences of values.
-For example, strings and lists are actually similar, if you consider a string to be a “list” of single text characters.
-Many of the things you can do with lists can also be done with strings: indexing; slicing; and using them with for loops, with len(), and with the in and not in operators.
-To see this, enter the following into the interactive shell:
+Lists aren’t the only data types that represent ordered sequences of values. For 
+example, strings and lists are actually similar, if you consider a string to be a “list” 
+of single text characters. Many of the things you can do with lists can also be done 
+with strings: indexing; slicing; and using them with for loops, with len(), and with 
+the in and not in operators. To see this, enter the following into the interactive shell:
 
 >>> name = 'Zophie'
 >>> name[0]
@@ -74,10 +98,11 @@ False
 
 Mutable and Immutable Data Types
 ================================
-But lists and strings are different in an important way.
-A list value is a mutable data type: It can have values added, removed, or changed.
-However, a string is immutable: It cannot be changed.
-Trying to reassign a single character in a string results in a TypeError error, as you can see by entering the following into the interactive shell:
+But lists and strings are different in an important way. A list value is a mutable 
+data type: It can have values added, removed, or changed. However, a string is 
+immutable: It cannot be changed. Trying to reassign a single character in a string 
+results in a TypeError error, as you can see by entering the following into the 
+interactive shell:
 
 >>> name = 'Zophie a cat'
 >>> name[7] = 'the'
@@ -86,8 +111,9 @@ Traceback (most recent call last):
     name[7] = 'the'
 TypeError: 'str' object does not support item assignment
 
-The proper way to “mutate” a string is to use slicing and concatenation to build a new string by copying from parts of the old string.
-Enter the following into the interactive shell:
+The proper way to “mutate” a string is to use slicing and concatenation to build a 
+new string by copying from parts of the old string. Enter the following into the 
+interactive shell:
 
 >>> name = 'Zophie a cat'
 >>> newName = name[0:7] + 'the' + name[8:12]
@@ -97,19 +123,23 @@ Enter the following into the interactive shell:
 'Zophie the cat'
 
 We used [0:7] and [8:12] to refer to the characters that we don’t wish to replace.
-Notice that the original 'Zophie a cat' string is not modified because strings are immutable.
+Notice that the original 'Zophie a cat' string is not modified because strings are 
+immutable.
 
-Although a list value is mutable, the second line in the following code does not modify the list eggs:
+Although a list value is mutable, the second line in the following code does not 
+modify the list eggs:
 
 >>> eggs = [1, 2, 3]
 >>> eggs = [4, 5, 6]
 >>> eggs
 [4, 5, 6]
 
-The list value in eggs isn’t being changed here; rather, an entirely new and different list value ([4, 5, 6]) is overwriting the old list value ([1, 2, 3]).
+The list value in eggs isn’t being changed here; rather, an entirely new and 
+different list value ([4, 5, 6]) is overwriting the old list value ([1, 2, 3]).
 This is depicted in Figure 4-2.
 
-If you wanted to actually modify the original list in eggs to contain [4, 5, 6], you would have to do something like this:
+If you wanted to actually modify the original list in eggs to contain [4, 5, 6], you 
+would have to do something like this:
 
 >>> eggs = [1, 2, 3]
 >>> del eggs[2]
@@ -122,16 +152,29 @@ If you wanted to actually modify the original list in eggs to contain [4, 5, 6],
 [4, 5, 6]
 
 
+Figure 4-2. - https://automatetheboringstuff.com/images/000076.jpg
+When eggs = [4, 5, 6] is executed, the contents of eggs are replaced 
+with a new list value.
 
-In the first example, the list value that eggs ends up with is the same list value it started with.
-It’s just that this list has been changed, rather than overwritten
+In the first example, the list value that eggs ends up with is the same list value it 
+started with. It’s just that this list has been changed, rather than overwritten.
+Figure 4-3 depicts the seven changes made by the first seven lines in the previous 
+interactive shell example.
 
-Changing a value of a mutable data type (like what the del statement and append() method do in the previous example)
-changes the value in place, since the variable’s value is not replaced with a new list value.
+Figure 4-3. - https://automatetheboringstuff.com/images/000078.jpg
+The del statement and the append() method modify the same list value 
+in place.
 
-Mutable versus immutable types may seem like a meaningless distinction, but Passing References will explain the
-different behavior when calling functions with mutable arguments versus immutable arguments.
-But first, let’s find out about the tuple data type, which is an immutable form of the list data type.
+Changing a value of a mutable data type (like what the del statement and append() 
+method do in the previous example) changes the value in place, since the variable’s 
+value is not replaced with a new list value.
+
+Mutable versus immutable types may seem like a meaningless distinction, but 
+Passing References will explain the different behavior when calling functions with 
+mutable arguments versus immutable arguments. But first, let’s find out about the 
+tuple data type, which is an immutable form of the list data type.
+
+Passing References - https://automatetheboringstuff.com/chapter4/#calibre_link-128
 
 The Tuple Data Type
 ==================
@@ -147,9 +190,10 @@ For example, enter the following into the interactive shell:
 >>> len(eggs)
 3
 
-But the main way that tuples are different from lists is that tuples, like strings, are immutable.
-Tuples cannot have their values modified, appended, or removed.
-Enter the following into the interactive shell, and look at the TypeError error message:
+But the main way that tuples are different from lists is that tuples, like strings, are 
+immutable. Tuples cannot have their values modified, appended, or removed.
+Enter the following into the interactive shell, and look at the TypeError error 
+message:
 
 >>> eggs = ('hello', 42, 0.5)
 >>> eggs[1] = 99
@@ -158,27 +202,32 @@ Traceback (most recent call last):
     eggs[1] = 99
 TypeError: 'tuple' object does not support item assignment
 
-If you have only one value in your tuple, you can indicate this by placing a trailing comma after the value inside the parentheses.
-Otherwise, Python will think you’ve just typed a value inside regular parentheses.
-The comma is what lets Python know this is a tuple value.
-(Unlike some other programming languages, in Python it’s fine to have a trailing comma after the last item in a list or tuple.)
-Enter the following type() function calls into the interactive shell to see the distinction:
+If you have only one value in your tuple, you can indicate this by placing a trailing 
+comma after the value inside the parentheses. Otherwise, Python will think you’ve 
+just typed a value inside regular parentheses. The comma is what lets Python know 
+this is a tuple value. (Unlike some other programming languages, in Python it’s 
+fine to have a trailing comma after the last item in a list or tuple.) Enter the 
+following type() function calls into the interactive shell to see the distinction:
 
 >>> type(('hello',))
 <class 'tuple'>
 >>> type(('hello'))
 <class 'str'>
 
-You can use tuples to convey to anyone reading your code that you don’t intend for that sequence of values to change.
-If you need an ordered sequence of values that never changes, use a tuple.
-A second benefit of using tuples instead of lists is that, because they are immutable and their contents don’t change,
-Python can implement some optimizations that make code using tuples slightly faster than code using lists.
+You can use tuples to convey to anyone reading your code that you don’t intend for 
+that sequence of values to change. If you need an ordered sequence of values that 
+never changes, use a tuple. A second benefit of using tuples instead of lists is that, 
+because they are immutable and their contents don’t change, Python can 
+implement some optimizations that make code using tuples slightly faster than 
+code using lists.
 
 
 Converting Types with the list() and tuple() Functions
 ======================================================
-Just like how str(42) will return '42', the string representation of the integer 42, the functions list() and tuple() will return list and tuple versions of the values passed to them.
-Enter the following into the interactive shell, and notice that the return value is of a different data type than the value passed:
+Just like how str(42) will return '42', the string representation of the integer 42, 
+the functions list() and tuple() will return list and tuple versions of the values 
+passed to them. Enter the following into the interactive shell, and notice that the 
+return value is of a different data type than the value passed:
 
 >>> tuple(['cat', 'dog', 5])
 ('cat', 'dog', 5)
@@ -191,8 +240,8 @@ Converting a tuple to a list is handy if you need a mutable version of a tuple v
 
 References
 ==========
-As you’ve seen, variables store strings and integer values.
-Enter the following into the interactive shell:
+As you’ve seen, variables store strings and integer values. Enter the following into 
+the interactive shell:
 
 >>> spam = 42
 >>> cheese = spam
@@ -202,15 +251,16 @@ Enter the following into the interactive shell:
 >>> cheese
 42
 
-You assign 42 to the spam variable, and then you copy the value in spam and assign it to the variable cheese.
-When you later change the value in spam to 100, this doesn’t affect the value in cheese.
-This is because spam and cheese are different variables that store different values.
+You assign 42 to the spam variable, and then you copy the value in spam and assign 
+it to the variable cheese. When you later change the value in spam to 100, this 
+doesn’t affect the value in cheese. This is because spam and cheese are different 
+variables that store different values.
 
-But lists don’t work this way.
-When you assign a list to a variable, you are actually assigning a list reference to the variable.
-A reference is a value that points to some bit of data, and a list reference is a value that points to a list.
-Here is some code that will make this distinction easier to understand.
-Enter this into the interactive shell:
+But lists don’t work this way. When you assign a list to a variable, you are actually 
+assigning a list reference to the variable. A reference is a value that points to some 
+bit of data, and a list reference is a value that points to a list. Here is some code 
+that will make this distinction easier to understand. Enter this into the interactive 
+shell:
 
 ❶ >>> spam = [0, 1, 2, 3, 4, 5]
 ❷ >>> cheese = spam
@@ -220,27 +270,42 @@ Enter this into the interactive shell:
    >>> cheese
    [0, 'Hello!', 2, 3, 4, 5]
 
-This might look odd to you.
-The code changed only the cheese list, but it seems that both the cheese and spam lists have changed.
+This might look odd to you. The code changed only the cheese list, but it seems 
+that both the cheese and spam lists have changed.
 
-When you create the list ❶, you assign a reference to it in the spam variable.
-But the next line ❷ copies only the list reference in spam to cheese, not the list value itself.
-This means the values stored in spam and cheese now both refer to the same list.
-There is only one underlying list because the list itself was never actually copied.
-So when you modify the first element of cheese ❸, you are modifying the same list that spam refers to.
+When you create the list ❶, you assign a reference to it in the spam variable. But 
+the next line ❷ copies only the list reference in spam to cheese, not the list value 
+itself. This means the values stored in spam and cheese now both refer to the same 
+list. There is only one underlying list because the list itself was never actually 
+copied. So when you modify the first element of cheese ❸, you are modifying the 
+same list that spam refers to.
 
-Remember that variables are like boxes that contain values.
-The previous figures in this chapter show that lists in boxes aren’t exactly accurate because list variables don’t actually contain lists—they contain references to lists.
-(These references will have ID numbers that Python uses internally, but you can ignore them.)
-Using boxes as a metaphor for variables,
+Remember that variables are like boxes that contain values. The previous figures 
+in this chapter show that lists in boxes aren’t exactly accurate because list variables 
+don’t actually contain lists—they contain references to lists. (These references will 
+have ID numbers that Python uses internally, but you can ignore them.) Using 
+boxes as a metaphor for variables, Figure 4-4 shows what happens when a list is 
+assigned to the spam variable.
 
+Figure 4-4 - https://automatetheboringstuff.com/images/000081.jpg
 spam = [0, 1, 2, 3, 4, 5] stores a reference to a list, not the actual list.
-Then, the reference in spam is copied to cheese.
-Only a new reference was created and stored in cheese, not a new list.
-Note how both references refer to the same list.
 
-When you alter the list that cheese refers to, the list that spam refers to is also changed, because both cheese and spam refer to the same list.
+Then, in Figure 4-5, the reference in spam is copied to cheese. Only a new reference 
+was created and stored in cheese, not a new list. Note how both references refer to 
+the same list.
+
+
+Figure 4-5 - https://automatetheboringstuff.com/images/000082.jpg
+spam = cheese copies the reference, not the list.
+
+When you alter the list that cheese refers to, the list that spam refers to is also 
+changed, because both cheese and spam refer to the same list. You can see this in 
+Figure 4-6.
+
+Figure 4-6 - https://automatetheboringstuff.com/images/000071.jpg
 cheese[1] = 'Hello!' modifies the list that both variables refer to.
+
+STOPPED HERE -- CONTINUE FROM HERE
 
 Variables will contain references to list values rather than list values themselves.
 But for strings and integer values, variables simply contain the string or integer value.
